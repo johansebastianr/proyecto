@@ -1,0 +1,28 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Fondo gradiente (linear) -->
+    <item>
+        <shape>
+            <gradient
+                android:startColor="#ffffff"
+                android:endColor="#ffffff"
+                android:type="linear"
+                android:centerX="0.5"
+                android:centerY="0.0"
+                android:endY="1.0"/>
+        </shape>
+    </item>
+
+    <item
+        android:gravity="center">
+        <shape android:shape="rectangle">
+            <size android:width="500dp" android:height="500dp"/>
+            <gradient
+                android:startColor="#41527D"
+                android:endColor="#29344F"
+                android:angle="45"/>
+            <corners
+                android:bottomLeftRadius="300dp"
+                android:bottomRightRadius="300dp"/>
+        </shape>
+    </item>
+</layer-list>
