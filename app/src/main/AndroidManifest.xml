@@ -31,6 +31,9 @@
             android:name=".register.CrearCuenta"
             android:exported="false"/>
         <activity
+            android:name=".ui.home.ViajeFragment"
+            android:exported="false"/>
+        <activity
             android:name=".Home"
             android:exported="false"
             android:theme="@style/Theme.Proyecto.NoActionBar" />

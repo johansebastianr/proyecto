@@ -168,7 +168,7 @@
         android:layout_height="wrap_content"
         android:maxLines="1"
         android:singleLine="true"
-        android:text="Calle 55 bn #8 a-27"
+        android:text=""
         android:textColor="#3D3D3D"
         android:textSize="15sp"
         android:textStyle="bold"
