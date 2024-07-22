@@ -26,13 +26,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name=".register.CrearCuenta"
+            android:name=".CrearCuenta"
             android:exported="false"/>
         <activity
-            android:name=".ui.home.ViajeFragment"
-            android:exported="false"/>
+            android:name=".ui.ajustes.CerrarSesion"
+            android:exported="false" />
         <activity
             android:name=".Home"
             android:exported="false"

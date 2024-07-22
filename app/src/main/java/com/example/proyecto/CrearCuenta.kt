@@ -1,11 +1,10 @@
-package com.example.proyecto.register
+package com.example.proyecto
 
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.example.proyecto.MainActivity
 import com.example.proyecto.databinding.ActivityCrearCuentaBinding
 
 class CrearCuenta : AppCompatActivity(), View.OnClickListener {

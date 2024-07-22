@@ -157,15 +157,15 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/view13"
         app:layout_constraintEnd_toEndOf="@+id/view13"
-        app:layout_constraintHorizontal_bias="0.188"
+        app:layout_constraintHorizontal_bias="0.186"
         app:layout_constraintStart_toStartOf="@+id/view13"
         app:layout_constraintTop_toTopOf="@+id/view13"
-        app:layout_constraintVertical_bias="0.194" />
+        app:layout_constraintVertical_bias="0.121" />
 
     <AutoCompleteTextView
         android:id="@+id/textView51"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="208dp"
+        android:layout_height="40dp"
         android:maxLines="1"
         android:singleLine="true"
         android:text=""
@@ -174,7 +174,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/view13"
         app:layout_constraintEnd_toEndOf="@+id/view13"
-        app:layout_constraintHorizontal_bias="0.226"
+        app:layout_constraintHorizontal_bias="0.338"
         app:layout_constraintStart_toStartOf="@+id/view13"
         app:layout_constraintTop_toBottomOf="@+id/imageView1"
         app:layout_constraintVertical_bias="0.0" />
@@ -187,10 +187,10 @@
         android:src="@drawable/linea_gris"
         app:layout_constraintBottom_toBottomOf="@+id/view13"
         app:layout_constraintEnd_toEndOf="@+id/view13"
-        app:layout_constraintHorizontal_bias="0.384"
+        app:layout_constraintHorizontal_bias="0.369"
         app:layout_constraintStart_toStartOf="@+id/view13"
         app:layout_constraintTop_toBottomOf="@+id/textView50"
-        app:layout_constraintVertical_bias="0.253"></ImageView>
+        app:layout_constraintVertical_bias="0.228"></ImageView>
 
     <View
         android:id="@+id/button21"

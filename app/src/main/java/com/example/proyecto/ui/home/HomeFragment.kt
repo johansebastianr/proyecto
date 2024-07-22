@@ -2,7 +2,6 @@ package com.example.proyecto.ui.home
 
 import android.Manifest
 import android.content.Context
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Geocoder
 import android.location.Location
@@ -12,7 +11,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -177,23 +175,15 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
                     startLocationUpdates()
                 } else {
                     Log.e("HomeFragment", "GPS is not enabled")
-                    binding.textView50.text = Editable.Factory.getInstance().newEditable("GPS no está activado")
+                    binding.textView50.text =
+                        Editable.Factory.getInstance().newEditable("GPS no está activado")
                 }
             } else {
                 // El permiso fue denegado
                 Log.e("HomeFragment", "Location permission denied")
-                binding.textView50.text = Editable.Factory.getInstance().newEditable("Permiso de ubicación denegado")
+                binding.textView50.text =
+                    Editable.Factory.getInstance().newEditable("Permiso de ubicación denegado")
             }
         }
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        view.findViewById<Button>(R.id.button6).setOnClickListener {
-            val intent = Intent(requireContext(), ViajeFragment::class.java)
-            startActivity(intent)
-        }
-
     }
 }

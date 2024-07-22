@@ -19,9 +19,8 @@ class AjustesFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
         _binding = FragmentAjustesBinding.inflate(inflater, container, false)
-        val root: View = binding.root
 
         binding.textView6.setOnClickListener {
             val intent = Intent(requireContext(), EditarPerfil::class.java)
@@ -50,7 +49,11 @@ class AjustesFragment : Fragment() {
             bottomSheetDialog.show()
         }
 
-        return root
+        return binding.root
+    }
+
+    private fun finish() {
+        TODO("Not yet implemented")
     }
 
     override fun onDestroyView() {
