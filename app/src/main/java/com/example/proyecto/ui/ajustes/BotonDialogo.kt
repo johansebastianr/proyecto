@@ -1,4 +1,4 @@
-package com.example.proyecto.page
+package com.example.proyecto.ui.ajustes
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,8 @@ import android.widget.RadioGroup
 import androidx.appcompat.app.AppCompatActivity
 import com.example.proyecto.R
 import com.example.proyecto.databinding.ActivityBotonDialogoBinding
+import com.example.proyecto.page.Debito
+import com.example.proyecto.page.Nequi
 
 class BotonDialogo : AppCompatActivity() {
     private lateinit var binding: ActivityBotonDialogoBinding

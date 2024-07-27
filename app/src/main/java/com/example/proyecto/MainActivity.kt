@@ -55,6 +55,7 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<View>(R.id.crearCuenta).setOnClickListener {
             startActivity(Intent(this@MainActivity, CrearCuenta::class.java))
+            finish()
         }
     }
 }

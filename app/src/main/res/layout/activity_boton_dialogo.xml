@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="16sp"
-    tools:context="."
+    tools:context=".ui.ajustes.BotonDialogo"
     android:background="@drawable/dialogo_fondo">
 
     <androidx.constraintlayout.widget.ConstraintLayout

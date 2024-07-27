@@ -69,7 +69,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
 
         binding.textView50.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
-                binding.textView50.text = Editable.Factory.getInstance().newEditable("") // Vacía el texto
+                binding.textView50.text = Editable.Factory.getInstance().newEditable("")
             } else {
                 if (binding.textView50.text.toString().isEmpty()) {
                     binding.textView50.text = Editable.Factory.getInstance().newEditable("Tu ubicación")
@@ -79,7 +79,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
 
         binding.textView51.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
-                binding.textView51.text = Editable.Factory.getInstance().newEditable("") // Vacía el texto
+                binding.textView51.text = Editable.Factory.getInstance().newEditable("")
             } else {
                 if (binding.textView51.text.toString().isEmpty()) {
 
@@ -93,7 +93,6 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-        // Detén las actualizaciones de ubicación cuando la vista es destruida
         if (::fusedLocationClient.isInitialized) {
             fusedLocationClient.removeLocationUpdates(locationCallback)
         }
@@ -102,29 +101,15 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
-        // Añade un marcador en Popayán y mueve la cámara
-        val popayan = LatLng(2.4448, -76.6147)
-        val marker = MarkerOptions().position(popayan).title("Marker in Popayán")
-        // Establece el icono por defecto de Google Maps
-        marker.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
-        // Añade el marcador
-        mMap?.addMarker(marker)
-        mMap?.moveCamera(CameraUpdateFactory.newLatLngZoom(popayan, 15f)) // Ajusta el nivel de zoom según sea necesario
-
-        // Verifica los permisos de ubicación
         if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION)
             == PackageManager.PERMISSION_GRANTED) {
-            // El permiso está concedido, verifica si el GPS está habilitado
             if (isGPSEnabled()) {
-                // Inicia las actualizaciones de ubicación
                 startLocationUpdates()
             } else {
-                // Muestra un mensaje o solicita al usuario que active el GPS
                 Log.e("HomeFragment", "GPS is not enabled")
                 binding.textView50.text = Editable.Factory.getInstance().newEditable("GPS no está activado")
             }
         } else {
-            // Solicita permisos de ubicación
             requestPermissions(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), locationPermissionRequestCode)
         }
     }
@@ -135,12 +120,10 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
     }
 
     private fun startLocationUpdates() {
-        // Solicita actualizaciones de ubicación
         if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION)
             == PackageManager.PERMISSION_GRANTED) {
             fusedLocationClient.requestLocationUpdates(locationRequest, locationCallback, null)
         } else {
-            // Solicita permisos nuevamente si no están concedidos
             requestPermissions(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), locationPermissionRequestCode)
         }
     }
@@ -170,7 +153,6 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == locationPermissionRequestCode) {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // El permiso fue concedido
                 if (isGPSEnabled()) {
                     startLocationUpdates()
                 } else {
@@ -179,7 +161,6 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
                         Editable.Factory.getInstance().newEditable("GPS no está activado")
                 }
             } else {
-                // El permiso fue denegado
                 Log.e("HomeFragment", "Location permission denied")
                 binding.textView50.text =
                     Editable.Factory.getInstance().newEditable("Permiso de ubicación denegado")

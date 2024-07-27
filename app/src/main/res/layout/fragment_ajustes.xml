@@ -202,78 +202,68 @@
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/person" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="20sp"
-        android:layout_height="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintHorizontal_bias="0.883"
-        app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toBottomOf="@+id/view4"
-        app:layout_constraintVertical_bias="0.233"
-        app:srcCompat="@drawable/arrow_24" />
-
-    <ImageView
-        android:id="@+id/imagen2"
-        android:layout_width="20sp"
-        android:layout_height="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintHorizontal_bias="0.88"
-        app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toBottomOf="@+id/view4"
-        app:layout_constraintVertical_bias="0.146"
-        app:srcCompat="@drawable/arrow_24" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/view15"
-        app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintHorizontal_bias="0.884"
-        app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toBottomOf="@+id/view4"
-        app:layout_constraintVertical_bias="0.69"
-        app:srcCompat="@drawable/add_24" />
-
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="20sp"
-        android:layout_height="20sp"
+    <LinearLayout
+        android:layout_width="77dp"
+        android:layout_height="442dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintHorizontal_bias="0.88"
+        app:layout_constraintHorizontal_bias="0.906"
         app:layout_constraintStart_toStartOf="@+id/view"
         app:layout_constraintTop_toTopOf="@+id/view"
-        app:layout_constraintVertical_bias="0.797"
-        app:srcCompat="@drawable/arrow_24" />
+        app:layout_constraintVertical_bias="0.809">
 
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="20sp"
-        android:layout_height="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
-        app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintHorizontal_bias="0.88"
-        app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toTopOf="@+id/view"
-        app:layout_constraintVertical_bias="0.886"
-        app:srcCompat="@drawable/arrow_24" />
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="20sp"
+            android:layout_height="20sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="60dp"
+            app:srcCompat="@drawable/arrow_24" />
 
-    <Switch
-        android:id="@+id/switch1"
-        android:layout_width="52sp"
-        android:layout_height="35sp"
-        android:text="."
-        android:textColor="#D9D9D9"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
-        app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintHorizontal_bias="0.918"
-        app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toTopOf="@+id/view"
-        app:layout_constraintVertical_bias="0.592"
-        tools:ignore="MissingConstraints,UseSwitchCompatOrMaterialXml" />
+
+        <ImageView
+            android:id="@+id/imagen2"
+            android:layout_width="20sp"
+            android:layout_height="20sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            app:srcCompat="@drawable/arrow_24" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="37dp"
+            app:srcCompat="@drawable/add_24" />
+
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="52sp"
+            android:layout_height="35sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:textColor="#D9D9D9"
+            tools:ignore="MissingConstraints,UseSwitchCompatOrMaterialXml" />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="20sp"
+            android:layout_height="20sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="90dp"
+            app:srcCompat="@drawable/arrow_24" />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="20sp"
+            android:layout_height="20sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            app:srcCompat="@drawable/arrow_24" />
+
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
