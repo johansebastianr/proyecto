@@ -18,7 +18,7 @@ class UsuarioAdapter(
     private var onClick: OnItemClicked? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UsuarioViewHolder {
-        val vista = LayoutInflater.from(parent.context).inflate(R.layout.item_rv_usuario, parent, false)
+        val vista = LayoutInflater.from(parent.context).inflate(R.layout.activity_editar_perfil, parent, false)
         return UsuarioViewHolder(vista)
     }
 
@@ -29,17 +29,6 @@ class UsuarioAdapter(
         holder.etNombre.setText(usuario.nombre)
         holder.etEmail.setText(usuario.correo)
 
-        holder.btnEditar.setOnClickListener {
-            onClick?.editarUsuario(usuario)
-        }
-
-        holder.btnActualizar.setOnClickListener {
-            onClick?.actualizarUsuario(usuario)
-        }
-
-        holder.btnEliminar.setOnClickListener {
-            onClick?.borrarUsuario(usuario.idUsuario)
-        }
     }
 
     override fun getItemCount(): Int {
@@ -47,13 +36,10 @@ class UsuarioAdapter(
     }
 
     inner class UsuarioViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val tvIdUsuario: TextView = itemView.findViewById(R.id.tvIdUsuario)
-        val etNombre: EditText = itemView.findViewById(R.id.etNombre)
-        val etEmail: EditText = itemView.findViewById(R.id.etEmail)
+        val tvIdUsuario: TextView = itemView.findViewById(R.id.textViewUserId)
+        val etNombre: EditText = itemView.findViewById(R.id.tvNombre)
+        val etEmail: EditText = itemView.findViewById(R.id.tvCorreo)
 
-        val btnEditar: Button = itemView.findViewById(R.id.btnEditar)
-        val btnActualizar: Button = itemView.findViewById(R.id.btnActualizar)
-        val btnEliminar: Button = itemView.findViewById(R.id.btnEliminar)
     }
 
     interface OnItemClicked {

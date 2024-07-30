@@ -16,8 +16,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Proyecto"
-        tools:targetApi="31"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
+        <activity
+            android:name=".crud.EditarPerfil"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -29,12 +32,15 @@
         </activity>
         <activity
             android:name=".CrearCuenta"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".ui.ajustes.CerrarSesion"
             android:exported="false" />
         <activity
             android:name=".ui.ajustes.Acerca"
+            android:exported="false" />
+        <activity
+            android:name=".crud.EditarPerfil"
             android:exported="false" />
         <activity
             android:name=".Home"
