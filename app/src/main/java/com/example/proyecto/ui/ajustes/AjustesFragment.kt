@@ -22,20 +22,12 @@ class AjustesFragment : Fragment() {
     ): View? {
         _binding = FragmentAjustesBinding.inflate(inflater, container, false)
 
-        binding.textView6.setOnClickListener {
-            val intent = Intent(requireContext(), EditarPerfil::class.java)
-            startActivity(intent)
-        }
 
         binding.textView16.setOnClickListener {
             val intent = Intent(requireContext(), Acerca::class.java)
             startActivity(intent)
         }
 
-        binding.textView8.setOnClickListener {
-            val intent = Intent(requireContext(), Contrasena::class.java)
-            startActivity(intent)
-        }
 
         binding.textView4.setOnClickListener {
             val intent = Intent(requireContext(), CerrarSesion::class.java)
