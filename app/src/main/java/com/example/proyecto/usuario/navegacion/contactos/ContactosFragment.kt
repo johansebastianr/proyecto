@@ -1,4 +1,4 @@
-package com.example.proyecto.ui.contactos
+package com.example.proyecto.usuario.navegacion.contactos
 
 import android.os.Bundle
 import android.view.LayoutInflater

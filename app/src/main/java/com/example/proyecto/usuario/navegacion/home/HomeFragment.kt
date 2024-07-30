@@ -1,4 +1,4 @@
-package com.example.proyecto.ui.home
+package com.example.proyecto.usuario.navegacion.home
 
 import android.Manifest
 import android.content.Context

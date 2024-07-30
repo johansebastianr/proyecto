@@ -1,4 +1,4 @@
-package com.example.proyecto.ui.viajes
+package com.example.proyecto.usuario.navegacion.viajes
 
 import android.os.Bundle
 import android.view.LayoutInflater

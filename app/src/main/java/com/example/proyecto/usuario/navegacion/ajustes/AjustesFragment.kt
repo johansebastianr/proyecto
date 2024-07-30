@@ -1,4 +1,4 @@
-package com.example.proyecto.ui.ajustes
+package com.example.proyecto.usuario.navegacion.ajustes
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,8 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.proyecto.R
-import com.example.proyecto.crud.EditarPerfil
 import com.example.proyecto.databinding.FragmentAjustesBinding
+import com.example.proyecto.usuario.crud.EditarPerfil
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class AjustesFragment : Fragment() {

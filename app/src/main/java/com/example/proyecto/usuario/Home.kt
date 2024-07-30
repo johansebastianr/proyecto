@@ -1,4 +1,4 @@
-package com.example.proyecto
+package com.example.proyecto.usuario
 
 import android.content.Intent
 import android.os.Bundle
@@ -13,6 +13,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import com.example.proyecto.R
 import com.example.proyecto.databinding.ActivityHomeBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -32,7 +33,7 @@ class Home : AppCompatActivity() {
         binding.appBarHome.fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null)
-                .setAnchorView(R.id.fab).show()
+                .show()
         }
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
@@ -55,6 +56,10 @@ class Home : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_salir -> {
+                cerrarSesion()
+                true
+            }
+            R.id.action_cambiarCuenta -> {
                 cerrarSesion()
                 true
             }

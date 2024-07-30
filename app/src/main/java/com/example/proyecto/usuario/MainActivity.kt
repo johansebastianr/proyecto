@@ -1,4 +1,4 @@
-package com.example.proyecto
+package com.example.proyecto.usuario
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.proyecto.R
 import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
@@ -51,7 +52,7 @@ class MainActivity : AppCompatActivity() {
                         Toast.makeText(this@MainActivity, "El correo no se encuentra registrado: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                     }
                 }
-        }
+            }
 
         findViewById<View>(R.id.crearCuenta).setOnClickListener {
             startActivity(Intent(this@MainActivity, CrearCuenta::class.java))

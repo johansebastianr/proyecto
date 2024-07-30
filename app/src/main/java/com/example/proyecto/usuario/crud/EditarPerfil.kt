@@ -1,14 +1,12 @@
-package com.example.proyecto.crud
+package com.example.proyecto.usuario.crud
+
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import com.example.proyecto.MainActivity
-import com.example.proyecto.R
 import com.example.proyecto.databinding.ActivityEditarPerfilBinding
-import com.example.proyecto.ui.ajustes.AjustesFragment
+import com.example.proyecto.usuario.navegacion.ajustes.AjustesFragment
 
 class EditarPerfil : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityEditarPerfilBinding

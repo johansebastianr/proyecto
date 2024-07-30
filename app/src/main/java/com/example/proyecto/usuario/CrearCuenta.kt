@@ -1,12 +1,12 @@
-package com.example.proyecto
+package com.example.proyecto.usuario
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.example.proyecto.api.RetrofitClient
-import com.example.proyecto.api.Usuario
 import com.example.proyecto.databinding.ActivityCrearCuentaBinding
+import com.example.proyecto.usuario.api.RetrofitClient
+import com.example.proyecto.usuario.api.Usuario
 import kotlinx.coroutines.*
 
 class CrearCuenta : AppCompatActivity() {

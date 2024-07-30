@@ -1,4 +1,4 @@
-package com.example.proyecto.ui.ajustes
+package com.example.proyecto.usuario.navegacion.ajustes
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

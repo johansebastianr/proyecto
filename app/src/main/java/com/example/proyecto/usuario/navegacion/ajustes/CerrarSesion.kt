@@ -1,11 +1,11 @@
-package com.example.proyecto.ui.ajustes
+package com.example.proyecto.usuario.navegacion.ajustes
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.example.proyecto.MainActivity
 import com.example.proyecto.databinding.ActivityCerrarSesionBinding
+import com.example.proyecto.usuario.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 
 class CerrarSesion : AppCompatActivity(), View.OnClickListener {
