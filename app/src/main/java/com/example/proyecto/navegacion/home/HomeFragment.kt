@@ -3,6 +3,7 @@ package com.example.proyecto.navegacion.home
 import android.Manifest
 import android.content.Context
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.location.Geocoder
 import android.location.Location
 import android.os.Bundle
@@ -27,6 +28,7 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
+import com.google.android.gms.maps.model.CircleOptions
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import java.util.Locale
@@ -130,12 +132,40 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
 
     private fun updateLocationOnMap(location: Location) {
         val userLatLng = LatLng(location.latitude, location.longitude)
-        val userMarker = MarkerOptions().position(userLatLng).title("Tu Ubicación")
-        userMarker.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
+
+        // Radio del círculo en metros para la ubicación actual
+        val locationRadius = 30.0
+
+        // Radio del círculo en metros para el alcance
+        val reachRadius = 150.0
+
+        // Limpiar el mapa de círculos antiguos
         mMap?.clear()
-        mMap?.addMarker(userMarker)
+
+        // Círculo para la ubicación actual
+        val locationCircle = CircleOptions()
+            .center(userLatLng)
+            .radius(locationRadius)  // Radio del círculo en metros
+            .strokeColor(Color.parseColor("#3F51B5"))  // Color del borde del círculo (azul oscuro)
+            .fillColor(Color.parseColor("#3F51B5"))  // Color del borde del círculo (azul oscuro)
+            .strokeWidth(5f)  // Ancho del borde del círculo
+
+        // Círculo para el radio de alcance
+        val reachCircle = CircleOptions()
+            .center(userLatLng)
+            .radius(reachRadius)  // Radio del círculo en metros
+            .strokeColor(Color.parseColor("#3F51B5"))  // Color del borde del círculo de alcance (azul oscuro)
+            .fillColor(Color.parseColor("#3355A0FF"))  // Color de relleno del círculo de alcance (azul translúcido)
+            .strokeWidth(3f)  // Ancho del borde del círculo
+
+        // Añadir los círculos al mapa
+        mMap?.addCircle(reachCircle)  // Añadir el círculo de alcance
+        mMap?.addCircle(locationCircle)  // Añadir el círculo de ubicación actual
+
+        // Mover la cámara al centro de la ubicación actual
         mMap?.moveCamera(CameraUpdateFactory.newLatLngZoom(userLatLng, 15f))
 
+        // Obtener la dirección y actualizar el TextView
         val addresses = geocoder.getFromLocation(location.latitude, location.longitude, 1)
         if (addresses != null && addresses.isNotEmpty()) {
             val address = addresses[0].getAddressLine(0)
@@ -144,6 +174,8 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
             binding.textView51.text = Editable.Factory.getInstance().newEditable("Dirección no disponible")
         }
     }
+
+
 
     override fun onRequestPermissionsResult(
         requestCode: Int,

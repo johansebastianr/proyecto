@@ -24,11 +24,13 @@
             android:theme="@style/Theme.Proyecto.NoActionBar" />
 
         <activity
-            android:name=".EditarPerfil"
-            android:exported="false"
-            android:theme="@style/Theme.Proyecto.NoActionBar" />
-        <activity
             android:name=".crud.EditarPerfil"
+            android:exported="false" />
+        <activity
+            android:name=".navegacion.ajustes.Acerca"
+            android:exported="false" />
+        <activity
+            android:name=".navegacion.ajustes.CerrarSesion"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
