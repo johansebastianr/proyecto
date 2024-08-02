@@ -19,6 +19,15 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Home"
+            android:exported="false"
+            android:theme="@style/Theme.Proyecto.NoActionBar" />
+
+        <activity
+            android:name=".EditarPerfil"
+            android:exported="false"
+            android:theme="@style/Theme.Proyecto.NoActionBar" />
+        <activity
             android:name=".crud.EditarPerfil"
             android:exported="false" />
         <activity
@@ -33,19 +42,6 @@
         <activity
             android:name=".CrearCuenta"
             android:exported="false" />
-        <activity
-            android:name=".ui.ajustes.CerrarSesion"
-            android:exported="false" />
-        <activity
-            android:name=".ui.ajustes.Acerca"
-            android:exported="false" />
-        <activity
-            android:name=".crud.EditarPerfil"
-            android:exported="false" />
-        <activity
-            android:name=".Home"
-            android:exported="false"
-            android:theme="@style/Theme.Proyecto.NoActionBar" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

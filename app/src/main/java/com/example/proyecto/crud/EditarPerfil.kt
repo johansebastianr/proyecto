@@ -1,12 +1,11 @@
-package com.example.proyecto.usuario.crud
-
+package com.example.proyecto.crud
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.example.proyecto.CrearCuenta
 import com.example.proyecto.databinding.ActivityEditarPerfilBinding
-import com.example.proyecto.usuario.navegacion.ajustes.AjustesFragment
 
 class EditarPerfil : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityEditarPerfilBinding
@@ -22,7 +21,7 @@ class EditarPerfil : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v) {
             binding.buttonVolver -> {
-                val intent = Intent(this, AjustesFragment::class.java).apply {
+                val intent = Intent(this, CrearCuenta::class.java).apply {
                 }
                 startActivity(intent)
                 finish()

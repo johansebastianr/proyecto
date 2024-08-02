@@ -1,12 +1,13 @@
-package com.example.proyecto.usuario
+package com.example.proyecto
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
 import android.widget.Toast
+import com.example.proyecto.api.RetrofitClient
+import com.example.proyecto.api.Usuario
 import com.example.proyecto.databinding.ActivityCrearCuentaBinding
-import com.example.proyecto.usuario.api.RetrofitClient
-import com.example.proyecto.usuario.api.Usuario
 import kotlinx.coroutines.*
 
 class CrearCuenta : AppCompatActivity() {
@@ -18,13 +19,22 @@ class CrearCuenta : AppCompatActivity() {
         binding = ActivityCrearCuentaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         binding.btnEnviar.setOnClickListener {
+
             if (validarCampos()) {
                 agregarUsuario()
             } else {
                 Toast.makeText(this, "Se deben llenar los campos", Toast.LENGTH_LONG).show()
             }
         }
+
+        binding.sesion.setOnClickListener {
+            val intent = Intent(this@CrearCuenta, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
     }
 
     private fun validarCampos(): Boolean {

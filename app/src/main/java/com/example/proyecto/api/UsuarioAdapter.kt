@@ -1,9 +1,10 @@
-package com.example.proyecto.usuario.api
+package com.example.proyecto.api
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -24,7 +25,6 @@ class UsuarioAdapter(
     override fun onBindViewHolder(holder: UsuarioViewHolder, position: Int) {
         val usuario = listaUsuarios[position]
 
-        holder.tvIdUsuario.text = usuario.idUsuario.toString()
         holder.etNombre.setText(usuario.nombre)
         holder.etEmail.setText(usuario.correo)
 
@@ -35,7 +35,6 @@ class UsuarioAdapter(
     }
 
     inner class UsuarioViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val tvIdUsuario: TextView = itemView.findViewById(R.id.textViewUserId)
         val etNombre: EditText = itemView.findViewById(R.id.tvNombre)
         val etEmail: EditText = itemView.findViewById(R.id.tvCorreo)
 
