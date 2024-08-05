@@ -1,9 +1,8 @@
-package com.example.proyecto
+package com.example.proyecto.api.rol
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
 import android.widget.Toast
 import com.example.proyecto.api.RetrofitClient
 import com.example.proyecto.api.Usuario
@@ -30,7 +29,7 @@ class CrearCuenta : AppCompatActivity() {
         }
 
         binding.sesion.setOnClickListener {
-            val intent = Intent(this@CrearCuenta, MainActivity::class.java)
+            val intent = Intent(this@CrearCuenta, Rol::class.java)
             startActivity(intent)
             finish()
         }
@@ -61,7 +60,7 @@ class CrearCuenta : AppCompatActivity() {
                 if (response.isSuccessful) {
                     Toast.makeText(this@CrearCuenta, "Registro éxitoso", Toast.LENGTH_LONG).show()
                     limpiarCampos()
-                    val intent = Intent(this@CrearCuenta, MainActivity::class.java)
+                    val intent = Intent(this@CrearCuenta, UsuarioLogin::class.java)
                     startActivity(intent)
                     finish()
                 } else {

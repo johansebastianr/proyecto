@@ -1,4 +1,4 @@
-package com.example.proyecto
+package com.example.proyecto.api.rol
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,8 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.proyecto.navegacion.home.Home
+import com.example.proyecto.R
 import com.example.proyecto.api.login.ApiService
 import com.example.proyecto.api.login.LoginRequest
 import com.example.proyecto.api.login.LoginResponse
@@ -16,7 +18,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class MainActivity : AppCompatActivity() {
+class UsuarioLogin : AppCompatActivity() {
 
     private lateinit var emailEditText: EditText
     private lateinit var passwordEditText: EditText
@@ -24,7 +26,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var registerButton: TextView
 
     private val retrofit = Retrofit.Builder()
-        .baseUrl("http://192.168.1.12:3000/")
+        .baseUrl("http://192.168.0.17:3000/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
@@ -64,18 +66,18 @@ class MainActivity : AppCompatActivity() {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                 if (response.isSuccessful) {
                     val token = response.body()?.token
-                    Toast.makeText(this@MainActivity, "Login exitoso: $token", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@UsuarioLogin, "Bienvenido", Toast.LENGTH_LONG).show()
 
-                    val intent = Intent(this@MainActivity, Home::class.java)
+                    val intent = Intent(this@UsuarioLogin, Home::class.java)
                     startActivity(intent)
                     finish()
                 } else {
-                    Toast.makeText(this@MainActivity, "Credenciales inválidas", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@UsuarioLogin, "Credenciales inválidas", Toast.LENGTH_SHORT).show()
                 }
             }
 
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                Toast.makeText(this@MainActivity, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@UsuarioLogin, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
     }

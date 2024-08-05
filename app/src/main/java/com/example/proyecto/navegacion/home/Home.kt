@@ -1,4 +1,4 @@
-package com.example.proyecto
+package com.example.proyecto.navegacion.home
 
 import android.content.Intent
 import android.os.Bundle
@@ -14,9 +14,10 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import com.example.proyecto.R
+import com.example.proyecto.api.rol.UsuarioLogin
 import com.example.proyecto.databinding.ActivityHomeBinding
 import com.example.proyecto.navegacion.mensajes.Mensajes
-import com.google.firebase.auth.FirebaseAuth
 
 class Home : AppCompatActivity() {
 
@@ -81,7 +82,7 @@ class Home : AppCompatActivity() {
 
     private fun cerrarSesion() {
 
-        val intent = Intent(this, MainActivity::class.java)
+        val intent = Intent(this, UsuarioLogin::class.java)
         startActivity(intent)
         finish()
     }

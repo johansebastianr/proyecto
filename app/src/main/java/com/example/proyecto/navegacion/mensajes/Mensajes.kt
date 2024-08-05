@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.example.proyecto.Home
+import com.example.proyecto.navegacion.home.Home
 import com.example.proyecto.databinding.ActivityMensajesBinding
 
 class Mensajes : AppCompatActivity(), View.OnClickListener {

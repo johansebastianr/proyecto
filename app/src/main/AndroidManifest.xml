@@ -11,15 +11,18 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:icon="@drawable/brewride"
+        android:label="Brew Ride"
+        android:roundIcon="@drawable/brewride"
         android:supportsRtl="true"
         android:theme="@style/Theme.Proyecto"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".api.rol.Cargo"
+            android:exported="false" />
+        <activity
+            android:name=".SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,7 +31,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Home"
+            android:name=".navegacion.home.Home"
             android:exported="false"
             android:theme="@style/Theme.Proyecto.NoActionBar" />
         <activity
@@ -44,11 +47,19 @@
             android:name=".navegacion.ajustes.CerrarSesion"
             android:exported="false" />
         <activity
-            android:name=".CrearCuenta"
-            android:exported="false" />
-        <activity
             android:name=".navegacion.mensajes.Mensajes"
             android:exported="false" />
+        <activity
+            android:name=".api.rol.Rol"
+            android:exported="false" />
+        <activity
+            android:name=".api.rol.UsuarioLogin"
+            android:exported="false" />
+
+        <activity
+            android:name=".api.rol.CrearCuenta"
+            android:exported="false" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyB8iVafmx5zXKYOJKxRnQ0efXlNmqS4Fkc" />

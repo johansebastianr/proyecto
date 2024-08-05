@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondo_gradiante"
-    tools:context=".api.rol.UsuarioLogin">
+    tools:context=".api.rol.Rol">
 
     <ImageView
         android:id="@+id/imageView11"
@@ -74,19 +74,16 @@
         app:layout_constraintTop_toBottomOf="@+id/textView18"
         app:layout_constraintVertical_bias="0.078" />
 
-    <EditText
-        android:id="@+id/etCorreo"
+
+    <TextView
+        android:id="@+id/pasajero"
         android:layout_width="190sp"
         android:layout_height="42sp"
-        android:ems="10"
-        android:inputType="textEmailAddress"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/border"
         android:gravity="center"
-        android:hint="Correo"
+        android:text="Pasajero"
         android:textColor="#FFFFFF"
-        android:textAllCaps="false"
-        android:textColorHint="#FFFFFF"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -94,50 +91,25 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView19"
-        app:layout_constraintVertical_bias="0.076" />
+        app:layout_constraintVertical_bias="0.243" />
 
-    <EditText
-        android:id="@+id/etContraseña"
+    <TextView
+        android:id="@+id/conductor"
         android:layout_width="190sp"
         android:layout_height="42sp"
-        android:ems="10"
-        android:inputType="textPassword"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/border"
         android:gravity="center"
-        android:hint="Contraseña"
-        android:textColor="#FFFFFF"
-        android:textAllCaps="false"
-        android:textColorHint="#FFFFFF"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etCorreo"
-        app:layout_constraintVertical_bias="0.04" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/buttonIniciar"
-        android:layout_width="190sp"
-        android:layout_height="42sp"
-        android:background="@drawable/boton"
-        android:gravity="center"
-        android:shadowColor="#000000"
-        android:shadowRadius="4"
-        android:text="Iniciar Sesión"
-        android:textAllCaps="false"
+        android:text="Conductor"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:onClick="Login"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/pasajero"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etContraseña"
-        app:layout_constraintVertical_bias="0.067" />
+        app:layout_constraintTop_toBottomOf="@+id/textView19"
+        app:layout_constraintVertical_bias="0.674" />
 
     <TextView
         android:id="@+id/textView20"
@@ -154,7 +126,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonIniciar"
+        app:layout_constraintTop_toBottomOf="@+id/pasajero"
         app:layout_constraintVertical_bias="0.136" />
 
     <ImageView
@@ -203,7 +175,6 @@
         android:background="@drawable/underline_white"
         android:fontFamily="sans-serif"
         android:paddingBottom="17sp"
-        android:layout_below="@id/etCorreo"
         android:text="Crear cuenta"
         android:textAlignment="center"
         android:textColor="#FFFAF3"
