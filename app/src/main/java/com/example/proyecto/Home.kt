@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -14,6 +15,7 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.example.proyecto.databinding.ActivityHomeBinding
+import com.example.proyecto.navegacion.mensajes.Mensajes
 import com.google.firebase.auth.FirebaseAuth
 
 class Home : AppCompatActivity() {
@@ -26,6 +28,12 @@ class Home : AppCompatActivity() {
 
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.navView.getHeaderView(0).findViewById<View>(R.id.mensajes).setOnClickListener {
+            val intent = Intent(this, Mensajes::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         setSupportActionBar(binding.appBarHome.toolbar)
 

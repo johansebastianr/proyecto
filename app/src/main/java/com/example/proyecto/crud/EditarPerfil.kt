@@ -2,10 +2,16 @@ package com.example.proyecto.crud
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.example.proyecto.R
+import com.example.proyecto.api.RetrofitClient
+import com.example.proyecto.api.Usuario
+import kotlinx.coroutines.launch
+import retrofit2.HttpException
 
 class EditarPerfil : AppCompatActivity() {
 
@@ -14,6 +20,12 @@ class EditarPerfil : AppCompatActivity() {
     private lateinit var tvDireccion: EditText
     private lateinit var tvCorreo: EditText
     private lateinit var tvContraseña: EditText
+    private lateinit var btnActualizar: Button
+    private lateinit var btnAgregar: Button
+    private lateinit var btnBorrar: Button
+
+    private val webService = RetrofitClient.webService
+    private var idUsuario: Int = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,46 +37,131 @@ class EditarPerfil : AppCompatActivity() {
         tvDireccion = findViewById(R.id.tvDireccion)
         tvCorreo = findViewById(R.id.tvCorreo)
         tvContraseña = findViewById(R.id.tvContraseña)
+        btnActualizar = findViewById(R.id.btnActualizar)
+        btnAgregar = findViewById(R.id.btnAgregar)
+        btnBorrar = findViewById(R.id.btnBorrar)
 
-        // Obtener datos del usuario y establecer en las vistas
-        val usuario = obtenerDatosUsuario()
-        tvNombre.setText(usuario.nombre)
-        tvTelefono.setText(usuario.telefono)
-        tvDireccion.setText(usuario.direccion)
-        tvCorreo.setText(usuario.correo)
-        tvContraseña.setText(usuario.contraseña)
+        // Obtener el ID del usuario del Intent
+        idUsuario = intent.getIntExtra("USER_ID", -1)
+
+        if (idUsuario == -1) {
+            // Configurar para agregar un nuevo usuario
+            btnActualizar.visibility = View.GONE
+            btnBorrar.visibility = View.GONE
+            btnAgregar.visibility = View.VISIBLE
+        } else {
+            // Configurar para editar un usuario existente
+            btnActualizar.visibility = View.VISIBLE
+            btnBorrar.visibility = View.VISIBLE
+            btnAgregar.visibility = View.GONE
+            obtenerUsuario(idUsuario)
+        }
+
+        btnActualizar.setOnClickListener { onActualizarClick() }
+        btnAgregar.setOnClickListener { onAgregarClick() }
+        btnBorrar.setOnClickListener { onBorrarClick() }
     }
 
-    fun onActualizarClick(view: View) {
-        val nombre = tvNombre.text.toString()
-        val telefono = tvTelefono.text.toString()
-        val direccion = tvDireccion.text.toString()
-        val correo = tvCorreo.text.toString()
-        val contraseña = tvContraseña.text.toString()
+    private fun obtenerUsuario(idUsuario: Int) {
+        lifecycleScope.launch {
+            try {
+                val response = webService.obtenerUsuario(idUsuario)
+                if (response.isSuccessful) {
+                    val usuario = response.body()
+                    if (usuario != null) {
+                        // Cargar los datos en los campos
+                        tvNombre.setText(usuario.nombre)
+                        tvTelefono.setText(usuario.telefono)
+                        tvDireccion.setText(usuario.direccion)
+                        tvCorreo.setText(usuario.correo)
+                        tvContraseña.setText(usuario.contraseña)
+                    } else {
+                        Toast.makeText(this@EditarPerfil, "Usuario no encontrado", Toast.LENGTH_SHORT).show()
+                    }
+                } else {
+                    Toast.makeText(this@EditarPerfil, "Error al obtener datos del usuario", Toast.LENGTH_SHORT).show()
+                }
+            } catch (e: HttpException) {
+                Toast.makeText(this@EditarPerfil, "Error en la conexión", Toast.LENGTH_SHORT).show()
+            } catch (e: Exception) {
+                Toast.makeText(this@EditarPerfil, "Error desconocido", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun onActualizarClick() {
+        val nombre = tvNombre.text.toString().trim()
+        val telefono = tvTelefono.text.toString().trim()
+        val direccion = tvDireccion.text.toString().trim()
+        val correo = tvCorreo.text.toString().trim()
+        val contraseña = tvContraseña.text.toString().trim()
 
         if (nombre.isNotEmpty() && telefono.isNotEmpty() && direccion.isNotEmpty() && correo.isNotEmpty() && contraseña.isNotEmpty()) {
-            val exito = actualizarDatosUsuario(nombre, telefono, direccion, correo, contraseña)
-
-            if (exito) {
-                Toast.makeText(this, "Perfil actualizado correctamente", Toast.LENGTH_SHORT).show()
-                finish()
-            } else {
-                Toast.makeText(this, "Error al actualizar el perfil", Toast.LENGTH_SHORT).show()
+            lifecycleScope.launch {
+                try {
+                    val usuario = Usuario(idUsuario, nombre, telefono, direccion, correo, contraseña)
+                    val response = webService.actualizarUsuario(idUsuario, usuario)
+                    if (response.isSuccessful) {
+                        Toast.makeText(this@EditarPerfil, "Perfil actualizado correctamente", Toast.LENGTH_SHORT).show()
+                        finish()
+                    } else {
+                        Toast.makeText(this@EditarPerfil, "Error al actualizar el perfil: ${response.message()}", Toast.LENGTH_SHORT).show()
+                    }
+                } catch (e: HttpException) {
+                    Toast.makeText(this@EditarPerfil, "Error en la conexión", Toast.LENGTH_SHORT).show()
+                } catch (e: Exception) {
+                    Toast.makeText(this@EditarPerfil, "Error desconocido", Toast.LENGTH_SHORT).show()
+                }
             }
         } else {
             Toast.makeText(this, "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show()
         }
     }
 
-    private fun obtenerDatosUsuario(): Usuario {
-        // Simulación de obtención de datos del usuario
-        return Usuario("Juan Pérez", "555-1234", "Calle Falsa 123", "juan.perez@example.com", "juan123")
+    private fun onAgregarClick() {
+        val nombre = tvNombre.text.toString().trim()
+        val telefono = tvTelefono.text.toString().trim()
+        val direccion = tvDireccion.text.toString().trim()
+        val correo = tvCorreo.text.toString().trim()
+        val contraseña = tvContraseña.text.toString().trim()
+
+        if (nombre.isNotEmpty() && telefono.isNotEmpty() && direccion.isNotEmpty() && correo.isNotEmpty() && contraseña.isNotEmpty()) {
+            lifecycleScope.launch {
+                try {
+                    val usuario = Usuario(0, nombre, telefono, direccion, correo, contraseña)
+                    val response = webService.agregarUsuario(usuario)
+                    if (response.isSuccessful) {
+                        Toast.makeText(this@EditarPerfil, "Usuario agregado correctamente", Toast.LENGTH_SHORT).show()
+                        finish()
+                    } else {
+                        Toast.makeText(this@EditarPerfil, "Error al agregar el usuario: ${response.message()}", Toast.LENGTH_SHORT).show()
+                    }
+                } catch (e: HttpException) {
+                    Toast.makeText(this@EditarPerfil, "Error en la conexión", Toast.LENGTH_SHORT).show()
+                } catch (e: Exception) {
+                    Toast.makeText(this@EditarPerfil, "Error desconocido", Toast.LENGTH_SHORT).show()
+                }
+            }
+        } else {
+            Toast.makeText(this, "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show()
+        }
     }
 
-    private fun actualizarDatosUsuario(nombre: String, telefono: String, direccion: String, correo: String, contraseña: String): Boolean {
-        // Simulación de actualización de datos del usuario
-        return true
+    private fun onBorrarClick() {
+        lifecycleScope.launch {
+            try {
+                val response = webService.borrarUsuario(idUsuario)
+                if (response.isSuccessful) {
+                    Toast.makeText(this@EditarPerfil, "Usuario borrado correctamente", Toast.LENGTH_SHORT).show()
+                    finish()
+                } else {
+                    Toast.makeText(this@EditarPerfil, "Error al borrar el usuario: ${response.message()}", Toast.LENGTH_SHORT).show()
+                }
+            } catch (e: HttpException) {
+                Toast.makeText(this@EditarPerfil, "Error en la conexión", Toast.LENGTH_SHORT).show()
+            } catch (e: Exception) {
+                Toast.makeText(this@EditarPerfil, "Error desconocido", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 }
-
-data class Usuario(val nombre: String, val telefono: String, val direccion: String, val correo: String, val contraseña: String)

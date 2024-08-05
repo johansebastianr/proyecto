@@ -1,58 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    tools:context=".crud.EditarPerfil">
 
-    <!-- Campo para Nombre -->
+    <!-- Campo Nombre -->
     <EditText
         android:id="@+id/tvNombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nombre"
-        android:inputType="text" />
+        android:layout_marginBottom="8dp"
+        android:padding="12dp"/>
 
-    <!-- Campo para Teléfono -->
+    <!-- Campo Teléfono -->
     <EditText
         android:id="@+id/tvTelefono"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Teléfono"
-        android:inputType="phone" />
+        android:layout_marginBottom="8dp"
+        android:padding="12dp"/>
 
-    <!-- Campo para Dirección -->
+    <!-- Campo Dirección -->
     <EditText
         android:id="@+id/tvDireccion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Dirección"
-        android:inputType="text" />
+        android:layout_marginBottom="8dp"
+        android:padding="12dp"/>
 
-    <!-- Campo para Correo Electrónico -->
+    <!-- Campo Correo -->
     <EditText
         android:id="@+id/tvCorreo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Correo Electrónico"
-        android:inputType="textEmailAddress" />
+        android:hint="Correo"
+        android:layout_marginBottom="8dp"
+        android:padding="12dp"/>
 
-    <!-- Campo para Contraseña -->
+    <!-- Campo Contraseña -->
     <EditText
         android:id="@+id/tvContraseña"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Contraseña"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:layout_marginBottom="16dp"
+        android:padding="12dp"/>
 
-    <!-- Botón para actualizar -->
+    <!-- Botón Actualizar -->
     <Button
         android:id="@+id/btnActualizar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Actualizar"
-        android:onClick="onActualizarClick"
-        android:layout_marginTop="16dp" />
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Botón Agregar -->
+    <Button
+        android:id="@+id/btnAgregar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Agregar"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Botón Borrar -->
+    <Button
+        android:id="@+id/btnBorrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Borrar"/>
 
 </LinearLayout>

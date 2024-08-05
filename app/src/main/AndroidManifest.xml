@@ -19,20 +19,6 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".Home"
-            android:exported="false"
-            android:theme="@style/Theme.Proyecto.NoActionBar" />
-
-        <activity
-            android:name=".crud.EditarPerfil"
-            android:exported="false" />
-        <activity
-            android:name=".navegacion.ajustes.Acerca"
-            android:exported="false" />
-        <activity
-            android:name=".navegacion.ajustes.CerrarSesion"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -42,9 +28,27 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".Home"
+            android:exported="false"
+            android:theme="@style/Theme.Proyecto.NoActionBar" />
+        <activity
+            android:name=".crud.EditarPerfil"
+            android:exported="false" />
+        <activity
+            android:name=".api.UsuarioActivity"
+            android:exported="false" />
+        <activity
+            android:name=".navegacion.ajustes.Acerca"
+            android:exported="false" />
+        <activity
+            android:name=".navegacion.ajustes.CerrarSesion"
+            android:exported="false" />
+        <activity
             android:name=".CrearCuenta"
             android:exported="false" />
-
+        <activity
+            android:name=".navegacion.mensajes.Mensajes"
+            android:exported="false" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyB8iVafmx5zXKYOJKxRnQ0efXlNmqS4Fkc" />

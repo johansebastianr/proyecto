@@ -12,37 +12,37 @@ object AppConstantes {
 
 interface WebService {
 
-    @GET("/usuarios")
+    @GET("usuarios")
     suspend fun obtenerUsuarios(): Response<UsuariosResponse>
 
-    @GET("/usuario/{idUsuario}")
+    @GET("usuario/{idUsuario}")
     suspend fun obtenerUsuario(
         @Path("idUsuario") idUsuario: Int
     ): Response<Usuario>
 
-    @POST("/usuario/add")
+    @POST("usuario/add")
     suspend fun agregarUsuario(
         @Body usuario: Usuario
     ): Response<String>
 
-    @PUT("/usuario/update/{idUsuario}")
+    @PUT("usuario/update/{idUsuario}")
     suspend fun actualizarUsuario(
         @Path("idUsuario") idUsuario: Int,
         @Body usuario: Usuario
     ): Response<String>
 
-    @DELETE("/usuario/delete/{idUsuario}")
+    @DELETE("usuario/delete/{idUsuario}")
     suspend fun borrarUsuario(
         @Path("idUsuario") idUsuario: Int
     ): Response<String>
 }
-
 
 object RetrofitClient {
     val webService: WebService by lazy {
         Retrofit.Builder()
             .baseUrl(AppConstantes.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))
-            .build().create(WebService::class.java)
+            .build()
+            .create(WebService::class.java)
     }
 }
