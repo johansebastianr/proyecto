@@ -6,16 +6,16 @@ import android.os.Bundle
 import android.widget.Toast
 import com.example.proyecto.api.RetrofitClient
 import com.example.proyecto.api.Usuario
-import com.example.proyecto.databinding.ActivityCrearCuentaBinding
+import com.example.proyecto.databinding.ActivityUsuarioCrearCuentaBinding
 import kotlinx.coroutines.*
 
-class CrearCuenta : AppCompatActivity() {
+class UsuarioCrearCuenta : AppCompatActivity() {
 
-    private lateinit var binding: ActivityCrearCuentaBinding
+    private lateinit var binding: ActivityUsuarioCrearCuentaBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityCrearCuentaBinding.inflate(layoutInflater)
+        binding = ActivityUsuarioCrearCuentaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
 
@@ -29,7 +29,7 @@ class CrearCuenta : AppCompatActivity() {
         }
 
         binding.sesion.setOnClickListener {
-            val intent = Intent(this@CrearCuenta, Rol::class.java)
+            val intent = Intent(this@UsuarioCrearCuenta, Rol::class.java)
             startActivity(intent)
             finish()
         }
@@ -58,13 +58,13 @@ class CrearCuenta : AppCompatActivity() {
             val response = RetrofitClient.webService.agregarUsuario(nuevoUsuario)
             withContext(Dispatchers.Main) {
                 if (response.isSuccessful) {
-                    Toast.makeText(this@CrearCuenta, "Registro éxitoso", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@UsuarioCrearCuenta, "Registro éxitoso", Toast.LENGTH_LONG).show()
                     limpiarCampos()
-                    val intent = Intent(this@CrearCuenta, UsuarioLogin::class.java)
+                    val intent = Intent(this@UsuarioCrearCuenta, UsuarioLogin::class.java)
                     startActivity(intent)
                     finish()
                 } else {
-                    Toast.makeText(this@CrearCuenta, "Error el correo ya existe", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@UsuarioCrearCuenta, "Error el correo ya existe", Toast.LENGTH_LONG).show()
                 }
             }
         }

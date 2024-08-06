@@ -12,13 +12,14 @@ import com.example.proyecto.R
 import com.example.proyecto.api.login.ApiService
 import com.example.proyecto.api.login.LoginRequest
 import com.example.proyecto.api.login.LoginResponse
+import com.example.proyecto.navegacion.home.Conductor
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class UsuarioLogin : AppCompatActivity() {
+class ConductorLogin : AppCompatActivity() {
 
     private lateinit var emailEditText: EditText
     private lateinit var passwordEditText: EditText
@@ -34,7 +35,7 @@ class UsuarioLogin : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_conductor_login)
 
         emailEditText = findViewById(R.id.etCorreo)
         passwordEditText = findViewById(R.id.etContraseña)
@@ -59,18 +60,18 @@ class UsuarioLogin : AppCompatActivity() {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                 if (response.isSuccessful) {
                     val token = response.body()?.token
-                    Toast.makeText(this@UsuarioLogin, "Bienvenido", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@ConductorLogin, "Bienvenido", Toast.LENGTH_LONG).show()
 
-                    val intent = Intent(this@UsuarioLogin, Home::class.java)
+                    val intent = Intent(this@ConductorLogin, Conductor::class.java)
                     startActivity(intent)
                     finish()
                 } else {
-                    Toast.makeText(this@UsuarioLogin, "Credenciales inválidas", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@ConductorLogin, "Credenciales inválidas", Toast.LENGTH_SHORT).show()
                 }
             }
 
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                Toast.makeText(this@UsuarioLogin, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@ConductorLogin, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
     }

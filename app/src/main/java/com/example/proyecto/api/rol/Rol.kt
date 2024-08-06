@@ -33,19 +33,19 @@ class Rol : AppCompatActivity() {
         }
 
         binding.conductor.setOnClickListener {
-            val intent = Intent(this@Rol, UsuarioLogin::class.java)
+            val intent = Intent(this@Rol, ConductorCrearCuenta::class.java)
             startActivity(intent)
             finish()
         }
 
         binding.pasajero.setOnClickListener {
-            val intent = Intent(this@Rol, UsuarioLogin::class.java)
+            val intent = Intent(this@Rol, UsuarioCrearCuenta::class.java)
             startActivity(intent)
             finish()
         }
 
         binding.crearCuenta.setOnClickListener {
-            val intent = Intent(this@Rol, CrearCuenta::class.java)
+            val intent = Intent(this@Rol, UsuarioCrearCuenta::class.java)
             startActivity(intent)
             finish()
         }

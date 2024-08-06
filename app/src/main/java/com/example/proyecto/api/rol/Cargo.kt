@@ -23,13 +23,13 @@ class Cargo : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v) {
             binding.button6 -> {
-                val intent = Intent(this, CrearCuenta::class.java).apply {
+                val intent = Intent(this, ConductorCrearCuenta::class.java).apply {
                 }
                 startActivity(intent)
                 finish()
             }
             binding.button7 -> {
-                val intent = Intent(this, CrearCuenta::class.java).apply {
+                val intent = Intent(this, UsuarioCrearCuenta::class.java).apply {
                 }
                 startActivity(intent)
                 finish()
