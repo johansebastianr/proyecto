@@ -1,4 +1,4 @@
-package com.example.proyecto.api
+package com.example.proyecto.api.conductor
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -9,37 +9,37 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.proyecto.R
 
-class UsuarioAdapter(
+class ConductorAdapter(
     private val context: Context,
-    private val listaUsuarios: ArrayList<UsuarioClass>
-) : RecyclerView.Adapter<UsuarioAdapter.UsuarioViewHolder>() {
+    private val listaConductores: ArrayList<ConductorClass>
+) : RecyclerView.Adapter<ConductorAdapter.ConductorViewHolder>() {
 
     private var onClick: OnItemClicked? = null
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UsuarioViewHolder {
-        val vista = LayoutInflater.from(parent.context).inflate(R.layout.item_usuario, parent, false)
-        return UsuarioViewHolder(vista)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ConductorViewHolder {
+        val vista = LayoutInflater.from(parent.context).inflate(R.layout.item_conductor, parent, false)
+        return ConductorViewHolder(vista)
     }
 
-    override fun onBindViewHolder(holder: UsuarioViewHolder, position: Int) {
-        val usuario = listaUsuarios[position]
+    override fun onBindViewHolder(holder: ConductorViewHolder, position: Int) {
+        val conductor = listaConductores[position]
 
-        configureTextView(holder.tvNombre, usuario.nombre)
-        configureTextView(holder.tvTelefono, usuario.telefono)
-        configureTextView(holder.tvDireccion, usuario.direccion)
-        configureTextView(holder.tvCorreo, usuario.correo)
-        configureTextView(holder.tvContraseña, usuario.contraseña)
+        configureTextView(holder.tvNombre, conductor.nombre)
+        configureTextView(holder.tvTelefono, conductor.telefono)
+        configureTextView(holder.tvDireccion, conductor.direccion)
+        configureTextView(holder.tvCorreo, conductor.correo)
+        configureTextView(holder.tvContraseña, conductor.contraseña)
 
         holder.btnActualizar.setOnClickListener {
-            onClick?.actualizarUsuario(usuario)
+            onClick?.actualizarConductor(conductor)
         }
 
         holder.btnAgregar.setOnClickListener {
-            onClick?.editarUsuario(usuario)
+            onClick?.editarConductor(conductor)
         }
 
         holder.btnBorrar.setOnClickListener {
-            onClick?.borrarUsuario(usuario.idUsuario)
+            onClick?.borrarConductor(conductor.idConductor)
         }
     }
 
@@ -49,10 +49,10 @@ class UsuarioAdapter(
     }
 
     override fun getItemCount(): Int {
-        return listaUsuarios.size
+        return listaConductores.size
     }
 
-    inner class UsuarioViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ConductorViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvNombre: TextView = itemView.findViewById(R.id.tvNombre)
         val tvTelefono: TextView = itemView.findViewById(R.id.tvTelefono)
         val tvDireccion: TextView = itemView.findViewById(R.id.tvDireccion)
@@ -64,9 +64,9 @@ class UsuarioAdapter(
     }
 
     interface OnItemClicked {
-        fun editarUsuario(usuario: UsuarioClass)
-        fun actualizarUsuario(usuario: UsuarioClass)
-        fun borrarUsuario(idUsuario: Int)
+        fun editarConductor(usuario: ConductorClass)
+        fun actualizarConductor(usuario: ConductorClass)
+        fun borrarConductor(idUsuario: Int)
     }
 
     fun setOnClick(onClick: OnItemClicked?) {

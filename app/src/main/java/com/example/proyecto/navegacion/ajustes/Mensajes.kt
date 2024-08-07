@@ -1,4 +1,4 @@
-package com.example.proyecto.navegacion.mensajes
+package com.example.proyecto.navegacion.ajustes
 
 import android.content.Intent
 import android.os.Bundle
@@ -17,7 +17,6 @@ class Mensajes : AppCompatActivity(), View.OnClickListener {
         binding = ActivityMensajesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Establecer OnClickListener para los botones
         binding.textView30.setOnClickListener(this)
     }
 

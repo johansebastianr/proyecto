@@ -1,4 +1,4 @@
-package com.example.proyecto.api
+package com.example.proyecto.api.usuario
 
 import com.google.gson.GsonBuilder
 import retrofit2.Response
@@ -10,7 +10,7 @@ object AppConstantes {
     const val BASE_URL = "http://192.168.1.12:3000/"
 }
 
-interface WebService {
+interface WebUsuario {
 
     @GET("usuarios")
     suspend fun obtenerUsuarios(): Response<UsuariosResponse>
@@ -35,14 +35,15 @@ interface WebService {
     suspend fun borrarUsuario(
         @Path("idUsuario") idUsuario: Int
     ): Response<String>
-}
 
-object RetrofitClient {
-    val webService: WebService by lazy {
-        Retrofit.Builder()
-            .baseUrl(AppConstantes.BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))
-            .build()
-            .create(WebService::class.java)
+
+    object RetrofitClient {
+        val webUsuario: WebUsuario by lazy {
+            Retrofit.Builder()
+                .baseUrl(AppConstantes.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))
+                .build()
+                .create(WebUsuario::class.java)
+        }
     }
 }

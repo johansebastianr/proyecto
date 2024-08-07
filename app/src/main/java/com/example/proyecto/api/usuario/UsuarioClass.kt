@@ -1,4 +1,4 @@
-package com.example.proyecto.api
+package com.example.proyecto.api.usuario
 
 import java.io.Serializable
 

@@ -57,6 +57,9 @@
         app:layout_constraintVertical_bias="0.499" />
 
     <!-- Formulario de inicio de sesión -->
+
+    <!-- Formulario de creación de cuenta -->
+
     <TextView
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
@@ -72,7 +75,7 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.083" />
+        app:layout_constraintVertical_bias="0.074" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -87,73 +90,148 @@
         app:layout_constraintTop_toBottomOf="@+id/textView7"
         app:layout_constraintVertical_bias="0.253">
 
-
-
-        <EditText
-            android:id="@+id/tvNombre"
+        <!-- Campo de Nombre -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/name_input_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/campos"
-            android:elevation="8dp"
-            android:ems="10"
-            android:paddingLeft="15dp"
-            android:hint="Nombre"
-            android:inputType="textPersonName"
-            android:textAllCaps="false"
-            android:textColor="#3D3D3D"
-            android:textColorHint="#3D3D3D"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/tvTelefono"
+            app:boxBackgroundMode="filled"
+            app:layout_constraintBottom_toTopOf="@+id/phone_input_layout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_default="wrap"
-            app:layout_constraintHeight_min="56dp"
-            app:layout_constraintHorizontal_bias="0.49"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.076"
-            app:layout_constraintWidth_default="wrap"
-            app:layout_constraintWidth_min="250dp" />
-
-        <EditText
-            android:id="@+id/tvTelefono"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="88dp"
-            android:background="@drawable/campos"
-            android:elevation="8dp"
-            android:ems="10"
-            android:paddingLeft="15dp"
-            android:hint="Teléfono"
-            android:inputType="phone"
-            android:textAllCaps="false"
-            android:textColor="#3D3D3D"
-            android:textColorHint="#3D3D3D"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_default="wrap"
-            app:layout_constraintHeight_min="56dp"
-            app:layout_constraintHorizontal_bias="0.49"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintWidth_default="wrap"
-            app:layout_constraintWidth_min="250dp" />
+            app:layout_constraintWidth_min="250dp">
 
-        <TextView
-            android:id="@+id/btnEnviar"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tvNombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nombre"
+                android:importantForAccessibility="yes"
+                android:inputType="textPersonName"
+                android:textColor="#3D3D3D"
+                android:textColorHint="#3D3D3D"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Campo de Teléfono -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/phone_input_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:boxBackgroundMode="filled"
+            app:layout_constraintBottom_toTopOf="@+id/address_input_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name_input_layout"
+            app:layout_constraintWidth_default="wrap"
+            app:layout_constraintWidth_min="250dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tvTelefono"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Teléfono"
+                android:importantForAccessibility="yes"
+                android:inputType="phone"
+                android:textColor="#3D3D3D"
+                android:textColorHint="#3D3D3D"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Campo de Dirección -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/address_input_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:boxBackgroundMode="filled"
+            app:layout_constraintBottom_toTopOf="@+id/email_input_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/phone_input_layout"
+            app:layout_constraintWidth_default="wrap"
+            app:layout_constraintWidth_min="250dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tvDireccion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Dirección"
+                android:importantForAccessibility="yes"
+                android:inputType="text"
+                android:textColor="#3D3D3D"
+                android:textColorHint="#3D3D3D"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Campo de Correo Electrónico -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/email_input_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:boxBackgroundMode="filled"
+            app:layout_constraintBottom_toTopOf="@+id/password_input_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/address_input_layout"
+            app:layout_constraintWidth_default="wrap"
+            app:layout_constraintWidth_min="250dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tvCorreo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Correo"
+                android:importantForAccessibility="yes"
+                android:inputType="textEmailAddress"
+                android:textColor="#3D3D3D"
+                android:textColorHint="#3D3D3D"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Campo de Contraseña -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/password_input_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:boxBackgroundMode="filled"
+            app:endIconMode="password_toggle"
+            app:layout_constraintBottom_toTopOf="@+id/buttonEnviar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/email_input_layout"
+            app:layout_constraintWidth_default="wrap"
+            app:layout_constraintWidth_min="250dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tvContraseña"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:importantForAccessibility="yes"
+                android:inputType="textPassword"
+                android:textColor="#3D3D3D"
+                android:textColorHint="#3D3D3D"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Botón Crear Cuenta -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonEnviar"
             android:layout_width="176dp"
             android:layout_height="40dp"
             android:background="@drawable/boton"
             android:elevation="8dp"
             android:gravity="center"
-            android:onClick="Login"
+            android:onClick="crearCuenta"
             android:shadowColor="#000000"
             android:shadowRadius="4"
-            android:text="Entrar"
+            android:text="Enviar"
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
             android:textSize="16sp"
@@ -162,88 +240,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_default="wrap"
             app:layout_constraintHeight_min="56dp"
-            app:layout_constraintHorizontal_bias="0.49"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvContraseña"
-            app:layout_constraintVertical_bias="0.6"
-            app:layout_constraintWidth_default="wrap"
-            app:layout_constraintWidth_min="250dp" />
-
-        <EditText
-            android:id="@+id/tvDireccion"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/campos"
-            android:elevation="8dp"
-            android:ems="10"
-            android:paddingLeft="15dp"
-            android:hint="Dirección"
-            android:inputType="text"
-            android:textAllCaps="false"
-            android:textColor="#3D3D3D"
-            android:textColorHint="#3D3D3D"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_default="wrap"
-            app:layout_constraintHeight_min="56dp"
-            app:layout_constraintHorizontal_bias="0.49"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvTelefono"
-            app:layout_constraintWidth_default="wrap"
-            app:layout_constraintWidth_min="250dp" />
-
-        <EditText
-            android:id="@+id/tvCorreo"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/campos"
-            android:elevation="8dp"
-            android:ems="10"
-            android:paddingLeft="15dp"
-            android:hint="Correo"
-            android:inputType="textEmailAddress"
-            android:textAllCaps="false"
-            android:textColor="#3D3D3D"
-            android:textColorHint="#3D3D3D"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_default="wrap"
-            app:layout_constraintHeight_min="56dp"
-            app:layout_constraintHorizontal_bias="0.49"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvDireccion"
-            app:layout_constraintWidth_default="wrap"
-            app:layout_constraintWidth_min="250dp" />
-
-        <EditText
-            android:id="@+id/tvContraseña"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/campos"
-            android:elevation="8dp"
-            android:ems="10"
-            android:paddingLeft="15dp"
-            android:hint="Contraseña"
-            android:inputType="textPassword"
-            android:textAllCaps="false"
-            android:textColor="#3D3D3D"
-            android:textColorHint="#3D3D3D"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_default="wrap"
-            app:layout_constraintHeight_min="56dp"
-            app:layout_constraintHorizontal_bias="0.49"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvCorreo"
             app:layout_constraintWidth_default="wrap"
             app:layout_constraintWidth_min="250dp" />
 
@@ -261,7 +259,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.356" />
+        app:layout_constraintVertical_bias="0.36" />
 
     <TextView
         android:id="@+id/sesion"
@@ -280,6 +278,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView22"
         app:layout_constraintVertical_bias="0.097" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

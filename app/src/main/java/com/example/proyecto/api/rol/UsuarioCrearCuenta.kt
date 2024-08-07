@@ -4,9 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.example.proyecto.api.RetrofitClient
-import com.example.proyecto.api.UsuarioClass
-import com.example.proyecto.api.login.IniciarSesion
+import com.example.proyecto.api.usuario.UsuarioClass
+import com.example.proyecto.api.usuario.WebUsuario
 import com.example.proyecto.databinding.ActivityUsuarioCrearCuentaBinding
 import kotlinx.coroutines.*
 
@@ -20,7 +19,7 @@ class UsuarioCrearCuenta : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        binding.btnEnviar.setOnClickListener {
+        binding.buttonEnviar.setOnClickListener {
 
             if (validarCampos()) {
                 agregarUsuario()
@@ -30,12 +29,12 @@ class UsuarioCrearCuenta : AppCompatActivity() {
         }
 
         binding.sesion.setOnClickListener {
-            val intent = Intent(this@UsuarioCrearCuenta, IniciarSesion::class.java)
+            val intent = Intent(this@UsuarioCrearCuenta, Rol::class.java)
             startActivity(intent)
             finish()
         }
-
     }
+
 
     private fun validarCampos(): Boolean {
         return !(binding.tvNombre.text.isNullOrEmpty()
@@ -56,7 +55,7 @@ class UsuarioCrearCuenta : AppCompatActivity() {
         )
 
         CoroutineScope(Dispatchers.IO).launch {
-            val response = RetrofitClient.webService.agregarUsuario(nuevoUsuario)
+            val response = WebUsuario.RetrofitClient.webUsuario.agregarUsuario(nuevoUsuario)
             withContext(Dispatchers.Main) {
                 if (response.isSuccessful) {
                     Toast.makeText(this@UsuarioCrearCuenta, "Registro éxitoso", Toast.LENGTH_LONG).show()

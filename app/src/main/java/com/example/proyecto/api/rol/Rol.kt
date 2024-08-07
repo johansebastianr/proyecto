@@ -8,9 +8,9 @@ import android.os.Handler
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.proyecto.R
+import com.example.proyecto.navegacion.animacion.SplashScreen
 import com.example.proyecto.api.login.IniciarSesion
 import com.example.proyecto.databinding.ActivityRolBinding
-import com.example.proyecto.navegacion.animacion.SplashScreen
 
 class Rol : AppCompatActivity(), View.OnClickListener {
 

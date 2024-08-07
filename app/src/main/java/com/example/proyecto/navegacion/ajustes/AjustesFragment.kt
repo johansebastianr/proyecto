@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.proyecto.R
-import com.example.proyecto.api.UsuarioActivity
+import com.example.proyecto.api.usuario.UsuarioActivity
 import com.example.proyecto.databinding.FragmentAjustesBinding
 import com.google.android.material.bottomsheet.BottomSheetDialog
 

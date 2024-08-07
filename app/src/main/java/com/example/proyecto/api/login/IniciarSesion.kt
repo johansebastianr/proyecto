@@ -26,7 +26,7 @@ class IniciarSesion : AppCompatActivity() {
     private lateinit var forgetButton: TextView
 
     private val retrofit = Retrofit.Builder()
-        .baseUrl("http://192.168.1.12:3000/") // Asegúrate de que esta URL es correcta
+        .baseUrl("http://192.168.1.12:3000/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
@@ -60,21 +60,19 @@ class IniciarSesion : AppCompatActivity() {
     }
 
     private fun login(email: String, password: String) {
-        val userType = "usuario"
-
-        val loginRequest = LoginRequest(email, password, userType)
+        val loginRequest = LoginRequest(email, password, "")
 
         apiService.login(loginRequest).enqueue(object : Callback<LoginResponse> {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                 if (response.isSuccessful) {
                     val loginResponse = response.body()
                     val token = loginResponse?.token
-                    val receivedUserType = loginResponse?.tipo
+                    val tipo = loginResponse?.tipo
 
-                    if (token != null && receivedUserType != null) {
+                    if (token != null && tipo != null) {
                         Toast.makeText(this@IniciarSesion, "Login exitoso", Toast.LENGTH_LONG).show()
 
-                        val intent = when (receivedUserType) {
+                        val intent = when (tipo) {
                             "usuario" -> Intent(this@IniciarSesion, Usuario::class.java)
                             "conductor" -> Intent(this@IniciarSesion, Conductor::class.java)
                             else -> {
@@ -83,6 +81,7 @@ class IniciarSesion : AppCompatActivity() {
                             }
                         }
 
+                        intent.putExtra("TOKEN", token)
                         startActivity(intent)
                         finish()
                     } else {

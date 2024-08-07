@@ -1,4 +1,4 @@
-package com.example.proyecto.api
+package com.example.proyecto.api.usuario
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.proyecto.R
-import com.example.proyecto.api.crud.EditarPerfil
 
 class UsuarioActivity : AppCompatActivity(), UsuarioAdapter.OnItemClicked {
 
@@ -42,7 +41,7 @@ class UsuarioActivity : AppCompatActivity(), UsuarioAdapter.OnItemClicked {
     }
 
     override fun editarUsuario(usuario: UsuarioClass) {
-        val intent = Intent(this, EditarPerfil::class.java)
+        val intent = Intent(this, UsuarioPerfil::class.java)
         intent.putExtra("usuario", usuario)
         startActivity(intent)
     }

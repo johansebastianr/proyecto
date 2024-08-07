@@ -17,12 +17,13 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.proyecto.R
 import com.example.proyecto.api.rol.Rol
 import com.example.proyecto.databinding.ActivityHomeBinding
-import com.example.proyecto.navegacion.mensajes.Mensajes
+import com.example.proyecto.navegacion.ajustes.Mensajes
 
 class Usuario : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityHomeBinding
+    private lateinit var token: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +31,10 @@ class Usuario : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Obtener el token del Intent
+        token = intent.getStringExtra("TOKEN") ?: ""
+
+        // Configura el resto de la actividad
         binding.navView.getHeaderView(0).findViewById<View>(R.id.mensajes).setOnClickListener {
             val intent = Intent(this, Mensajes::class.java)
             startActivity(intent)
@@ -60,6 +65,7 @@ class Usuario : AppCompatActivity() {
         menuInflater.inflate(R.menu.home, menu)
         return true
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_salir -> {
@@ -80,7 +86,6 @@ class Usuario : AppCompatActivity() {
     }
 
     private fun cerrarSesion() {
-
         val intent = Intent(this, Rol::class.java)
         startActivity(intent)
         finish()

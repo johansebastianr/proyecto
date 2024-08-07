@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools" >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -17,10 +17,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Proyecto"
         android:usesCleartextTraffic="true"
-        tools:targetApi="31">
+        tools:targetApi="31" >
+        <activity
+            android:name=".api.conductor.ConductorPerfil"
+            android:exported="false" />
         <activity
             android:name=".navegacion.animacion.SplashScreen"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -41,10 +44,10 @@
             android:exported="false"
             android:theme="@style/Theme.Proyecto.NoActionBar" />
         <activity
-            android:name=".api.crud.EditarPerfil"
+            android:name=".api.usuario.UsuarioPerfil"
             android:exported="false" />
         <activity
-            android:name=".api.UsuarioActivity"
+            android:name=".api.usuario.UsuarioActivity"
             android:exported="false" />
         <activity
             android:name=".navegacion.ajustes.Acerca"
@@ -53,7 +56,7 @@
             android:name=".navegacion.ajustes.CerrarSesion"
             android:exported="false" />
         <activity
-            android:name=".navegacion.mensajes.Mensajes"
+            android:name=".navegacion.ajustes.Mensajes"
             android:exported="false" />
         <activity
             android:name=".api.rol.Rol"
@@ -61,7 +64,6 @@
         <activity
             android:name=".api.rol.UsuarioCrearCuenta"
             android:exported="false" />
-
         <activity
             android:name=".api.login.IniciarSesion"
             android:exported="false" />

@@ -1,4 +1,4 @@
-package com.example.proyecto.api.crud
+package com.example.proyecto.api.usuario
 
 import android.os.Bundle
 import android.view.View
@@ -8,12 +8,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.proyecto.R
-import com.example.proyecto.api.RetrofitClient
-import com.example.proyecto.api.UsuarioClass
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 
-class EditarPerfil : AppCompatActivity() {
+class UsuarioPerfil : AppCompatActivity() {
 
     private lateinit var tvNombre: EditText
     private lateinit var tvTelefono: EditText
@@ -24,12 +22,12 @@ class EditarPerfil : AppCompatActivity() {
     private lateinit var btnAgregar: Button
     private lateinit var btnBorrar: Button
 
-    private val webService = RetrofitClient.webService
+    private val webUsuario = WebUsuario.RetrofitClient.webUsuario
     private var idUsuario: Int = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_editar_perfil)
+        setContentView(R.layout.activity_usuario_perfil)
 
         // Inicializar vistas
         tvNombre = findViewById(R.id.tvNombre)
@@ -65,7 +63,7 @@ class EditarPerfil : AppCompatActivity() {
     private fun obtenerUsuario(idUsuario: Int) {
         lifecycleScope.launch {
             try {
-                val response = webService.obtenerUsuario(idUsuario)
+                val response = webUsuario.obtenerUsuario(idUsuario)
                 if (response.isSuccessful) {
                     val usuario = response.body()
                     if (usuario != null) {
@@ -76,15 +74,15 @@ class EditarPerfil : AppCompatActivity() {
                         tvCorreo.setText(usuario.correo)
                         tvContraseña.setText(usuario.contraseña)
                     } else {
-                        Toast.makeText(this@EditarPerfil, "Usuario no encontrado", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@UsuarioPerfil, "Usuario no encontrado", Toast.LENGTH_SHORT).show()
                     }
                 } else {
-                    Toast.makeText(this@EditarPerfil, "Error al obtener datos del usuario", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@UsuarioPerfil, "Error al obtener datos del usuario", Toast.LENGTH_SHORT).show()
                 }
             } catch (e: HttpException) {
-                Toast.makeText(this@EditarPerfil, "Error en la conexión", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@UsuarioPerfil, "Error en la conexión", Toast.LENGTH_SHORT).show()
             } catch (e: Exception) {
-                Toast.makeText(this@EditarPerfil, "Error desconocido", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@UsuarioPerfil, "Error desconocido", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -100,17 +98,17 @@ class EditarPerfil : AppCompatActivity() {
             lifecycleScope.launch {
                 try {
                     val usuario = UsuarioClass(idUsuario, nombre, telefono, direccion, correo, contraseña)
-                    val response = webService.actualizarUsuario(idUsuario, usuario)
+                    val response = webUsuario.actualizarUsuario(idUsuario, usuario)
                     if (response.isSuccessful) {
-                        Toast.makeText(this@EditarPerfil, "Perfil actualizado correctamente", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@UsuarioPerfil, "Perfil actualizado correctamente", Toast.LENGTH_SHORT).show()
                         finish()
                     } else {
-                        Toast.makeText(this@EditarPerfil, "Error al actualizar el perfil: ${response.message()}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@UsuarioPerfil, "Error al actualizar el perfil: ${response.message()}", Toast.LENGTH_SHORT).show()
                     }
                 } catch (e: HttpException) {
-                    Toast.makeText(this@EditarPerfil, "Error en la conexión", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@UsuarioPerfil, "Error en la conexión", Toast.LENGTH_SHORT).show()
                 } catch (e: Exception) {
-                    Toast.makeText(this@EditarPerfil, "Error desconocido", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@UsuarioPerfil, "Error desconocido", Toast.LENGTH_SHORT).show()
                 }
             }
         } else {
@@ -129,17 +127,17 @@ class EditarPerfil : AppCompatActivity() {
             lifecycleScope.launch {
                 try {
                     val usuario = UsuarioClass(0, nombre, telefono, direccion, correo, contraseña)
-                    val response = webService.agregarUsuario(usuario)
+                    val response = webUsuario.agregarUsuario(usuario)
                     if (response.isSuccessful) {
-                        Toast.makeText(this@EditarPerfil, "Usuario agregado correctamente", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@UsuarioPerfil, "Usuario agregado correctamente", Toast.LENGTH_SHORT).show()
                         finish()
                     } else {
-                        Toast.makeText(this@EditarPerfil, "Error al agregar el usuario: ${response.message()}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@UsuarioPerfil, "Error al agregar el usuario: ${response.message()}", Toast.LENGTH_SHORT).show()
                     }
                 } catch (e: HttpException) {
-                    Toast.makeText(this@EditarPerfil, "Error en la conexión", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@UsuarioPerfil, "Error en la conexión", Toast.LENGTH_SHORT).show()
                 } catch (e: Exception) {
-                    Toast.makeText(this@EditarPerfil, "Error desconocido", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@UsuarioPerfil, "Error desconocido", Toast.LENGTH_SHORT).show()
                 }
             }
         } else {
@@ -150,17 +148,17 @@ class EditarPerfil : AppCompatActivity() {
     private fun onBorrarClick() {
         lifecycleScope.launch {
             try {
-                val response = webService.borrarUsuario(idUsuario)
+                val response = webUsuario.borrarUsuario(idUsuario)
                 if (response.isSuccessful) {
-                    Toast.makeText(this@EditarPerfil, "Usuario borrado correctamente", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@UsuarioPerfil, "Usuario borrado correctamente", Toast.LENGTH_SHORT).show()
                     finish()
                 } else {
-                    Toast.makeText(this@EditarPerfil, "Error al borrar el usuario: ${response.message()}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@UsuarioPerfil, "Error al borrar el usuario: ${response.message()}", Toast.LENGTH_SHORT).show()
                 }
             } catch (e: HttpException) {
-                Toast.makeText(this@EditarPerfil, "Error en la conexión", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@UsuarioPerfil, "Error en la conexión", Toast.LENGTH_SHORT).show()
             } catch (e: Exception) {
-                Toast.makeText(this@EditarPerfil, "Error desconocido", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@UsuarioPerfil, "Error desconocido", Toast.LENGTH_SHORT).show()
             }
         }
     }
