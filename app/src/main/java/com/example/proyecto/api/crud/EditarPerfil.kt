@@ -1,4 +1,4 @@
-package com.example.proyecto.crud
+package com.example.proyecto.api.crud
 
 import android.os.Bundle
 import android.view.View
@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.proyecto.R
 import com.example.proyecto.api.RetrofitClient
-import com.example.proyecto.api.Usuario
+import com.example.proyecto.api.UsuarioClass
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 
@@ -99,7 +99,7 @@ class EditarPerfil : AppCompatActivity() {
         if (nombre.isNotEmpty() && telefono.isNotEmpty() && direccion.isNotEmpty() && correo.isNotEmpty() && contraseña.isNotEmpty()) {
             lifecycleScope.launch {
                 try {
-                    val usuario = Usuario(idUsuario, nombre, telefono, direccion, correo, contraseña)
+                    val usuario = UsuarioClass(idUsuario, nombre, telefono, direccion, correo, contraseña)
                     val response = webService.actualizarUsuario(idUsuario, usuario)
                     if (response.isSuccessful) {
                         Toast.makeText(this@EditarPerfil, "Perfil actualizado correctamente", Toast.LENGTH_SHORT).show()
@@ -128,7 +128,7 @@ class EditarPerfil : AppCompatActivity() {
         if (nombre.isNotEmpty() && telefono.isNotEmpty() && direccion.isNotEmpty() && correo.isNotEmpty() && contraseña.isNotEmpty()) {
             lifecycleScope.launch {
                 try {
-                    val usuario = Usuario(0, nombre, telefono, direccion, correo, contraseña)
+                    val usuario = UsuarioClass(0, nombre, telefono, direccion, correo, contraseña)
                     val response = webService.agregarUsuario(usuario)
                     if (response.isSuccessful) {
                         Toast.makeText(this@EditarPerfil, "Usuario agregado correctamente", Toast.LENGTH_SHORT).show()

@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import com.example.proyecto.R
 import com.example.proyecto.api.UsuarioActivity
 import com.example.proyecto.databinding.FragmentAjustesBinding
-import com.example.proyecto.crud.EditarPerfil
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class AjustesFragment : Fragment() {
@@ -34,6 +33,8 @@ class AjustesFragment : Fragment() {
         binding.textView4.setOnClickListener {
             val intent = Intent(requireContext(), CerrarSesion::class.java)
             startActivity(intent)
+            finish()
+
         }
 
         binding.textView6.setOnClickListener {

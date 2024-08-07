@@ -11,7 +11,7 @@ import com.example.proyecto.R
 
 class UsuarioAdapter(
     private val context: Context,
-    private val listaUsuarios: ArrayList<Usuario>
+    private val listaUsuarios: ArrayList<UsuarioClass>
 ) : RecyclerView.Adapter<UsuarioAdapter.UsuarioViewHolder>() {
 
     private var onClick: OnItemClicked? = null
@@ -64,8 +64,8 @@ class UsuarioAdapter(
     }
 
     interface OnItemClicked {
-        fun editarUsuario(usuario: Usuario)
-        fun actualizarUsuario(usuario: Usuario)
+        fun editarUsuario(usuario: UsuarioClass)
+        fun actualizarUsuario(usuario: UsuarioClass)
         fun borrarUsuario(idUsuario: Int)
     }
 

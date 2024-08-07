@@ -15,11 +15,11 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.example.proyecto.R
-import com.example.proyecto.api.rol.UsuarioLogin
+import com.example.proyecto.api.rol.Rol
 import com.example.proyecto.databinding.ActivityHomeBinding
 import com.example.proyecto.navegacion.mensajes.Mensajes
 
-class Home : AppCompatActivity() {
+class Usuario : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityHomeBinding
@@ -60,7 +60,6 @@ class Home : AppCompatActivity() {
         menuInflater.inflate(R.menu.home, menu)
         return true
     }
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_salir -> {
@@ -82,7 +81,7 @@ class Home : AppCompatActivity() {
 
     private fun cerrarSesion() {
 
-        val intent = Intent(this, UsuarioLogin::class.java)
+        val intent = Intent(this, Rol::class.java)
         startActivity(intent)
         finish()
     }

@@ -1,4 +1,4 @@
-package com.example.proyecto
+package com.example.proyecto.navegacion.animacion
 
 import android.content.Intent
 import android.content.SharedPreferences
@@ -8,6 +8,7 @@ import android.view.WindowManager
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.proyecto.R
 import com.example.proyecto.api.rol.Rol
 import com.example.proyecto.databinding.ActivitySplashScreenBinding
 

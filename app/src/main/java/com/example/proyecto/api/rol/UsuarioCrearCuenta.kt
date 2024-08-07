@@ -5,7 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.proyecto.api.RetrofitClient
-import com.example.proyecto.api.Usuario
+import com.example.proyecto.api.UsuarioClass
+import com.example.proyecto.api.login.IniciarSesion
 import com.example.proyecto.databinding.ActivityUsuarioCrearCuentaBinding
 import kotlinx.coroutines.*
 
@@ -29,7 +30,7 @@ class UsuarioCrearCuenta : AppCompatActivity() {
         }
 
         binding.sesion.setOnClickListener {
-            val intent = Intent(this@UsuarioCrearCuenta, Rol::class.java)
+            val intent = Intent(this@UsuarioCrearCuenta, IniciarSesion::class.java)
             startActivity(intent)
             finish()
         }
@@ -45,7 +46,7 @@ class UsuarioCrearCuenta : AppCompatActivity() {
     }
 
     private fun agregarUsuario() {
-        val nuevoUsuario = Usuario(
+        val nuevoUsuario = UsuarioClass(
             -1,
             binding.tvNombre.text.toString(),
             binding.tvTelefono.text.toString(),
@@ -60,7 +61,7 @@ class UsuarioCrearCuenta : AppCompatActivity() {
                 if (response.isSuccessful) {
                     Toast.makeText(this@UsuarioCrearCuenta, "Registro éxitoso", Toast.LENGTH_LONG).show()
                     limpiarCampos()
-                    val intent = Intent(this@UsuarioCrearCuenta, UsuarioLogin::class.java)
+                    val intent = Intent(this@UsuarioCrearCuenta, Rol::class.java)
                     startActivity(intent)
                     finish()
                 } else {

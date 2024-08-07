@@ -16,7 +16,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.proyecto.R
-import com.example.proyecto.databinding.FragmentHomeBinding
+import com.example.proyecto.databinding.FragmentUsuarioBinding
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationRequest
@@ -27,15 +27,13 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.CircleOptions
 import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
 import java.util.Locale
 
-class HomeFragment : Fragment(), OnMapReadyCallback {
+class UsuarioFragment : Fragment(), OnMapReadyCallback {
 
-    private var _binding: FragmentHomeBinding? = null
+    private var _binding: FragmentUsuarioBinding? = null
     private val binding get() = _binding!!
     private var mMap: GoogleMap? = null
 
@@ -60,7 +58,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentUsuarioBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireContext())

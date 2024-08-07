@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.example.proyecto.api.rol.UsuarioLogin
+import com.example.proyecto.api.rol.Rol
 import com.example.proyecto.databinding.ActivityCerrarSesionBinding
 
 class CerrarSesion : AppCompatActivity(), View.OnClickListener {
@@ -23,7 +23,7 @@ class CerrarSesion : AppCompatActivity(), View.OnClickListener {
         when (v) {
             binding.opcion1 -> {
                 cerrarSesion()
-                val intent = Intent(this, UsuarioLogin::class.java).apply {
+                val intent = Intent(this, Rol::class.java).apply {
                     flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 }
                 startActivity(intent)
@@ -39,7 +39,7 @@ class CerrarSesion : AppCompatActivity(), View.OnClickListener {
 
     private fun cerrarSesion() {
 
-        val intent = Intent(this, UsuarioLogin::class.java)
+        val intent = Intent(this, Rol::class.java)
         startActivity(intent)
         finish()
     }

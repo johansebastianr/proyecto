@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.*
 
 object AppConstantes {
-    const val BASE_URL = "http://192.168.0.17:3000/"
+    const val BASE_URL = "http://192.168.1.12:3000/"
 }
 
 interface WebService {
@@ -18,17 +18,17 @@ interface WebService {
     @GET("usuario/{idUsuario}")
     suspend fun obtenerUsuario(
         @Path("idUsuario") idUsuario: Int
-    ): Response<Usuario>
+    ): Response<UsuarioClass>
 
     @POST("usuario/add")
     suspend fun agregarUsuario(
-        @Body usuario: Usuario
+        @Body usuario: UsuarioClass
     ): Response<String>
 
     @PUT("usuario/update/{idUsuario}")
     suspend fun actualizarUsuario(
         @Path("idUsuario") idUsuario: Int,
-        @Body usuario: Usuario
+        @Body usuario: UsuarioClass
     ): Response<String>
 
     @DELETE("usuario/delete/{idUsuario}")

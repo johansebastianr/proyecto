@@ -6,13 +6,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.proyecto.R
-import com.example.proyecto.crud.EditarPerfil
+import com.example.proyecto.api.crud.EditarPerfil
 
 class UsuarioActivity : AppCompatActivity(), UsuarioAdapter.OnItemClicked {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var usuarioAdapter: UsuarioAdapter
-    private val listaUsuarios = ArrayList<Usuario>()
+    private val listaUsuarios = ArrayList<UsuarioClass>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,19 +35,19 @@ class UsuarioActivity : AppCompatActivity(), UsuarioAdapter.OnItemClicked {
 
     private fun cargarDatos() {
         // Agregar datos de ejemplo
-        listaUsuarios.add(Usuario(1, "Juan", "123456789", "Dirección 1", "juan@example.com", "contraseña1"))
-        listaUsuarios.add(Usuario(2, "Ana", "987654321", "Dirección 2", "ana@example.com", "contraseña2"))
+        listaUsuarios.add(UsuarioClass(1, "Juan", "123456789", "Dirección 1", "juan@example.com", "contraseña1"))
+        listaUsuarios.add(UsuarioClass(2, "Ana", "987654321", "Dirección 2", "ana@example.com", "contraseña2"))
         // Notificar al adaptador sobre los cambios en los datos
         usuarioAdapter.notifyDataSetChanged()
     }
 
-    override fun editarUsuario(usuario: Usuario) {
+    override fun editarUsuario(usuario: UsuarioClass) {
         val intent = Intent(this, EditarPerfil::class.java)
         intent.putExtra("usuario", usuario)
         startActivity(intent)
     }
 
-    override fun actualizarUsuario(usuario: Usuario) {
+    override fun actualizarUsuario(usuario: UsuarioClass) {
         // Implementa la lógica para actualizar el usuario
         // Por ejemplo, podrías mostrar un diálogo o una nueva actividad para editar el usuario
     }

@@ -2,7 +2,7 @@ package com.example.proyecto.api
 
 import java.io.Serializable
 
-data class Usuario(
+data class UsuarioClass(
     var idUsuario: Int,
     var nombre: String,
     var telefono: String,

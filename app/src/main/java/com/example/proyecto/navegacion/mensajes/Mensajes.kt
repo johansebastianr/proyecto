@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.example.proyecto.navegacion.home.Home
+import com.example.proyecto.navegacion.home.Usuario
 import com.example.proyecto.databinding.ActivityMensajesBinding
 
 class Mensajes : AppCompatActivity(), View.OnClickListener {
@@ -25,7 +25,7 @@ class Mensajes : AppCompatActivity(), View.OnClickListener {
         when (v) {
 
             binding.textView30 -> {
-                val intent = Intent(this, Home::class.java).apply {
+                val intent = Intent(this, Usuario::class.java).apply {
                 }
                 startActivity(intent)
                 finish()

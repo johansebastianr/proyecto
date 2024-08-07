@@ -32,7 +32,6 @@ class Cargo : AppCompatActivity(), View.OnClickListener {
                 val intent = Intent(this, UsuarioCrearCuenta::class.java).apply {
                 }
                 startActivity(intent)
-                finish()
             }
         }
     }

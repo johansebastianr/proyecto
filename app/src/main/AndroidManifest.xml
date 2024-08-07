@@ -19,19 +19,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".navegacion.home.Conductor"
-            android:exported="false" />
-        <activity
-            android:name=".api.rol.ConductorLogin"
-            android:exported="false" />
-        <activity
-            android:name=".api.rol.ConductorCrearCuenta"
-            android:exported="false" />
-        <activity
-            android:name=".api.rol.Cargo"
-            android:exported="false" />
-        <activity
-            android:name=".SplashScreen"
+            android:name=".navegacion.animacion.SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,11 +28,20 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".navegacion.home.Home"
+            android:name=".navegacion.home.Conductor"
+            android:exported="false" />
+        <activity
+            android:name=".api.rol.ConductorCrearCuenta"
+            android:exported="false" />
+        <activity
+            android:name=".api.rol.Cargo"
+            android:exported="false" />
+        <activity
+            android:name=".navegacion.home.Usuario"
             android:exported="false"
             android:theme="@style/Theme.Proyecto.NoActionBar" />
         <activity
-            android:name=".crud.EditarPerfil"
+            android:name=".api.crud.EditarPerfil"
             android:exported="false" />
         <activity
             android:name=".api.UsuarioActivity"
@@ -62,11 +59,13 @@
             android:name=".api.rol.Rol"
             android:exported="false" />
         <activity
-            android:name=".api.rol.UsuarioLogin"
-            android:exported="false" />
-        <activity
             android:name=".api.rol.UsuarioCrearCuenta"
             android:exported="false" />
+
+        <activity
+            android:name=".api.login.IniciarSesion"
+            android:exported="false" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyB8iVafmx5zXKYOJKxRnQ0efXlNmqS4Fkc" />

@@ -75,7 +75,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView18"
         app:layout_constraintVertical_bias="0.077" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/pasajero"
         android:layout_width="190sp"
         android:layout_height="42sp"
@@ -83,7 +83,8 @@
         android:background="@drawable/border"
         android:gravity="center"
         android:text="Pasajero"
-        android:textColor="#FFFFFF"
+        android:textAllCaps="false"
+        android:textColor="#FFFAF3"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -93,7 +94,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView19"
         app:layout_constraintVertical_bias="0.243" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/conductor"
         android:layout_width="190sp"
         android:layout_height="42sp"
@@ -101,7 +102,8 @@
         android:background="@drawable/border"
         android:gravity="center"
         android:text="Conductor"
-        android:textColor="#FFFFFF"
+        android:textAllCaps="false"
+        android:textColor="#FFFAF3"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/pasajero"
@@ -178,7 +180,7 @@
         android:text="Crear cuenta"
         android:textAlignment="center"
         android:textColor="#FFFAF3"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:layout_marginTop="5dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.proyecto.api.RetrofitClient
-import com.example.proyecto.api.Usuario
+import com.example.proyecto.api.UsuarioClass
 import com.example.proyecto.databinding.ActivityUsuarioCrearCuentaBinding
 import kotlinx.coroutines.*
 
@@ -45,7 +45,7 @@ class ConductorCrearCuenta : AppCompatActivity() {
     }
 
     private fun agregarUsuario() {
-        val nuevoUsuario = Usuario(
+        val nuevoUsuario = UsuarioClass(
             -1,
             binding.tvNombre.text.toString(),
             binding.tvTelefono.text.toString(),
@@ -60,7 +60,7 @@ class ConductorCrearCuenta : AppCompatActivity() {
                 if (response.isSuccessful) {
                     Toast.makeText(this@ConductorCrearCuenta, "Registro éxitoso", Toast.LENGTH_LONG).show()
                     limpiarCampos()
-                    val intent = Intent(this@ConductorCrearCuenta, ConductorLogin::class.java)
+                    val intent = Intent(this@ConductorCrearCuenta, Rol::class.java)
                     startActivity(intent)
                     finish()
                 } else {
