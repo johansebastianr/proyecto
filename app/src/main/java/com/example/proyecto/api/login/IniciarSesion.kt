@@ -9,6 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.proyecto.R
+import com.example.proyecto.api.rol.RolAdapter
 import com.example.proyecto.navegacion.ajustes.CerrarSesion
 import com.example.proyecto.navegacion.home.Conductor
 import com.example.proyecto.navegacion.home.Usuario
@@ -24,6 +25,7 @@ class IniciarSesion : AppCompatActivity() {
     private lateinit var passwordEditText: EditText
     private lateinit var loginButton: Button
     private lateinit var forgetButton: TextView
+    private lateinit var rolSeleccionado: String
 
     private val retrofit = Retrofit.Builder()
         .baseUrl("http://192.168.1.12:3000/")
@@ -41,12 +43,19 @@ class IniciarSesion : AppCompatActivity() {
         loginButton = findViewById(R.id.buttonIniciar)
         forgetButton = findViewById(R.id.clave)
 
+        // Obtener el rol seleccionado desde el singleton
+        rolSeleccionado = RolAdapter.userType ?: ""
+
         loginButton.setOnClickListener {
-            val email = emailEditText.text.toString()
-            val password = passwordEditText.text.toString()
+            val email = emailEditText.text.toString().trim()
+            val password = passwordEditText.text.toString().trim()
 
             if (email.isNotEmpty() && password.isNotEmpty()) {
-                login(email, password)
+                if (rolSeleccionado.isNotEmpty()) {
+                    login(email, password, rolSeleccionado)
+                } else {
+                    Toast.makeText(this, "No se seleccionó el tipo de usuario", Toast.LENGTH_SHORT).show()
+                }
             } else {
                 Toast.makeText(this, "Por favor ingrese correo y contraseña", Toast.LENGTH_SHORT).show()
             }
@@ -55,24 +64,23 @@ class IniciarSesion : AppCompatActivity() {
         forgetButton.setOnClickListener {
             val intent = Intent(this, CerrarSesion::class.java)
             startActivity(intent)
-            finish()
         }
     }
 
-    private fun login(email: String, password: String) {
-        val loginRequest = LoginRequest(email, password, "")
+    private fun login(email: String, password: String, tipo: String) {
+        val loginRequest = LoginRequest(email, password, tipo)
 
         apiService.login(loginRequest).enqueue(object : Callback<LoginResponse> {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                 if (response.isSuccessful) {
                     val loginResponse = response.body()
                     val token = loginResponse?.token
-                    val tipo = loginResponse?.tipo
+                    val userType = loginResponse?.tipo
 
-                    if (token != null && tipo != null) {
+                    if (token != null && userType != null) {
                         Toast.makeText(this@IniciarSesion, "Login exitoso", Toast.LENGTH_LONG).show()
 
-                        val intent = when (tipo) {
+                        val intent = when (userType) {
                             "usuario" -> Intent(this@IniciarSesion, Usuario::class.java)
                             "conductor" -> Intent(this@IniciarSesion, Conductor::class.java)
                             else -> {
@@ -89,7 +97,7 @@ class IniciarSesion : AppCompatActivity() {
                     }
                 } else {
                     Log.e("IniciarSesion", "Error en la respuesta: ${response.code()} - ${response.message()}")
-                    Toast.makeText(this@IniciarSesion, "Credenciales inválidas", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@IniciarSesion, "Error en la respuesta del servidor: ${response.message()}", Toast.LENGTH_SHORT).show()
                 }
             }
 

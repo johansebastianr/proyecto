@@ -91,11 +91,10 @@
         app:layout_constraintVertical_bias="0.11" />
 
     <View
-        android:id="@+id/button6"
+        android:id="@+id/conductor"
         android:layout_width="200sp"
         android:layout_height="200sp"
         android:background="@drawable/cuadrado_blanco"
-        android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -107,10 +106,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="15sp"
-        app:layout_constraintBottom_toBottomOf="@+id/button6"
-        app:layout_constraintEnd_toEndOf="@+id/button6"
-        app:layout_constraintStart_toStartOf="@+id/button6"
-        app:layout_constraintTop_toTopOf="@+id/button6"
+        app:layout_constraintBottom_toBottomOf="@+id/conductor"
+        app:layout_constraintEnd_toEndOf="@+id/conductor"
+        app:layout_constraintStart_toStartOf="@+id/conductor"
+        app:layout_constraintTop_toTopOf="@+id/conductor"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@mipmap/logo_conductor_foreground" />
 
@@ -122,21 +121,20 @@
         android:textColor="#3D3D3D"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/button6"
-        app:layout_constraintEnd_toEndOf="@+id/button6"
-        app:layout_constraintStart_toStartOf="@+id/button6"
+        app:layout_constraintBottom_toBottomOf="@+id/conductor"
+        app:layout_constraintEnd_toEndOf="@+id/conductor"
+        app:layout_constraintStart_toStartOf="@+id/conductor"
         app:layout_constraintTop_toBottomOf="@+id/imageView7" />
 
     <View
-        android:id="@+id/button7"
+        android:id="@+id/usuario"
         android:layout_width="200sp"
         android:layout_height="200sp"
         android:background="@drawable/cuadrado_blanco"
-        android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button6"
+        app:layout_constraintTop_toBottomOf="@+id/conductor"
         app:layout_constraintVertical_bias="0.237" />
 
     <ImageView
@@ -144,10 +142,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="15sp"
-        app:layout_constraintBottom_toBottomOf="@+id/button7"
-        app:layout_constraintEnd_toEndOf="@+id/button7"
-        app:layout_constraintStart_toStartOf="@+id/button7"
-        app:layout_constraintTop_toTopOf="@+id/button7"
+        app:layout_constraintBottom_toBottomOf="@+id/usuario"
+        app:layout_constraintEnd_toEndOf="@+id/usuario"
+        app:layout_constraintStart_toStartOf="@+id/usuario"
+        app:layout_constraintTop_toTopOf="@+id/usuario"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@mipmap/usuario_foreground" />
 
@@ -159,10 +157,9 @@
         android:textColor="#3D3D3D"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/button7"
-        app:layout_constraintEnd_toEndOf="@+id/button7"
-        app:layout_constraintStart_toStartOf="@+id/button7"
+        app:layout_constraintBottom_toBottomOf="@+id/usuario"
+        app:layout_constraintEnd_toEndOf="@+id/usuario"
+        app:layout_constraintStart_toStartOf="@+id/usuario"
         app:layout_constraintTop_toBottomOf="@+id/imageView14" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

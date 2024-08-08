@@ -2,37 +2,37 @@ package com.example.proyecto.api.rol
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.view.View
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import com.example.proyecto.databinding.ActivityCargoBinding
+import com.example.proyecto.R
+import com.example.proyecto.api.login.IniciarSesion
 
-class Cargo : AppCompatActivity(), View.OnClickListener {
-    private lateinit var binding: ActivityCargoBinding
+class Cargo : AppCompatActivity() {
+
+    private lateinit var conductorButton: Button
+    private lateinit var usuarioButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d("MainActivity", "onCreate Called")
-        binding = ActivityCargoBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(R.layout.activity_cargo)
 
-        binding.button6.setOnClickListener(this)
-        binding.button7.setOnClickListener(this)
+        conductorButton = findViewById(R.id.conductor)
+        usuarioButton = findViewById(R.id.usuario)
+
+        conductorButton.setOnClickListener {
+            RolAdapter.userType = "conductor"
+            navigateToLogin()
+        }
+
+        usuarioButton.setOnClickListener {
+            RolAdapter.userType = "usuario"
+            navigateToLogin()
+        }
     }
 
-    override fun onClick(v: View?) {
-        when (v) {
-            binding.button6 -> {
-                val intent = Intent(this, ConductorCrearCuenta::class.java).apply {
-                }
-                startActivity(intent)
-                finish()
-            }
-            binding.button7 -> {
-                val intent = Intent(this, UsuarioCrearCuenta::class.java).apply {
-                }
-                startActivity(intent)
-            }
-        }
+    private fun navigateToLogin() {
+        val intent = Intent(this, IniciarSesion::class.java)
+        startActivity(intent)
+        finish()
     }
 }
