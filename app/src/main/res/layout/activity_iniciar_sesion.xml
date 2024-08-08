@@ -118,25 +118,27 @@
     <!-- Formulario de inicio de sesión -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="338dp"
-        android:layout_height="287dp"
+        android:layout_width="325dp"
+        android:layout_height="289dp"
         android:background="@drawable/cuadrado_blanco"
         android:elevation="8dp"
         android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView17"
-        app:layout_constraintVertical_bias="0.298">
+        app:layout_constraintVertical_bias="0.251">
 
-        <!-- Campo de Correo Electrónico -->
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/email_input_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:boxBackgroundMode="filled"
+            app:boxBackgroundMode="none"
             app:layout_constraintBottom_toTopOf="@+id/password_input_layout"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.488"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintWidth_default="wrap"
@@ -146,7 +148,9 @@
                 android:id="@+id/etCorreo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/campos"
                 android:hint="Correo"
+                android:importantForAccessibility="yes"
                 android:inputType="textEmailAddress"
                 android:textColor="#3D3D3D"
                 android:textColorHint="#3D3D3D"
@@ -154,15 +158,15 @@
                 android:textStyle="bold" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Campo de Contraseña -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/password_input_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:boxBackgroundMode="filled"
+            android:layout_marginTop="16dp"
+            app:boxBackgroundMode="none"
             app:endIconMode="password_toggle"
-            app:layout_constraintBottom_toTopOf="@+id/buttonIniciar"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.488"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/email_input_layout"
             app:layout_constraintWidth_default="wrap"
@@ -172,6 +176,9 @@
                 android:id="@+id/etContraseña"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/campos"
+                android:hint="Contraseña"
+                android:importantForAccessibility="yes"
                 android:inputType="textPassword"
                 android:textColor="#3D3D3D"
                 android:textColorHint="#3D3D3D"
@@ -179,15 +186,17 @@
                 android:textStyle="bold" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Botón Iniciar Sesión -->
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/buttonIniciar"
-            android:layout_width="176dp"
+            android:layout_width="170dp"
             android:layout_height="40dp"
             android:background="@drawable/boton"
             android:elevation="8dp"
             android:gravity="center"
-            android:onClick="Login"
+            android:onClick="crearCuenta"
+            android:padding="8dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
             android:shadowColor="#000000"
             android:shadowRadius="4"
             android:text="Entrar"
@@ -198,11 +207,12 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_default="wrap"
-            app:layout_constraintHeight_min="56dp"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHeight_min="50dp"
+            app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/password_input_layout"
             app:layout_constraintWidth_default="wrap"
-            app:layout_constraintWidth_min="250dp" />
+            app:layout_constraintWidth_min="200dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

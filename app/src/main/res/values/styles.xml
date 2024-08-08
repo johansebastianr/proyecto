@@ -1,5 +1,8 @@
+<!-- styles.xml -->
 <resources>
-    <style name="MenuItemTextStyle" parent="TextAppearance.AppCompat">
-        <item name="android:textColor">#FF0000</item>
+    <!-- Estilo personalizado para los ítems del menú -->
+    <style name="CustomMenuItemStyle">
+        <item name="android:textColor">#FF0000</item> <!-- Color rojo -->
     </style>
 </resources>
+

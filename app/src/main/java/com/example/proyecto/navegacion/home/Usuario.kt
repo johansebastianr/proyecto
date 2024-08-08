@@ -1,6 +1,7 @@
 package com.example.proyecto.navegacion.home
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -14,6 +15,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.example.proyecto.R
 import com.example.proyecto.api.rol.Rol
 import com.example.proyecto.databinding.ActivityHomeBinding
@@ -63,16 +65,24 @@ class Usuario : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.home, menu)
+
+        val menuItem = menu.findItem(R.id.action_salir)
+
+        menuItem?.actionView?.let { actionView ->
+            if (actionView is View) {
+                val colorBlanco = ContextCompat.getColor(this, R.color.red)
+                actionView.setBackgroundColor(colorBlanco)
+            }
+        }
+
         return true
     }
+
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_salir -> {
-                cerrarSesion()
-                true
-            }
-            R.id.action_cambiarCuenta -> {
                 cerrarSesion()
                 true
             }

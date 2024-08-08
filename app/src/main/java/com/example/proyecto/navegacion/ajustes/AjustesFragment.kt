@@ -33,7 +33,6 @@ class AjustesFragment : Fragment() {
         binding.textView4.setOnClickListener {
             val intent = Intent(requireContext(), CerrarSesion::class.java)
             startActivity(intent)
-            finish()
 
         }
 

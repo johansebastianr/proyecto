@@ -3,17 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_cambiarCuenta"
-        android:orderInCategory="100"
-        android:title="Cambiar a conductor"
-        android:titleTextAppearance="@style/MenuItemTextStyle"
-        app:showAsAction="never" />
-
-    <item
         android:id="@+id/action_salir"
         android:orderInCategory="100"
         android:title="Salir"
-        android:titleTextAppearance="@style/MenuItemTextStyle"
-        app:showAsAction="never" />
+        app:showAsAction="never"/>
 
 </menu>

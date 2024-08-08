@@ -75,41 +75,24 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.036" />
-
-    <TextView
-        android:id="@+id/textView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:fontFamily="sans-serif"
-        android:letterSpacing="0.08"
-        android:text="Complete los datos"
-        android:textAlignment="center"
-        android:textColor="#D9D9D9"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7"
-        app:layout_constraintVertical_bias="0.012" />
+        app:layout_constraintVertical_bias="0.071" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="335dp"
-        android:layout_height="498dp"
+        android:layout_width="334dp"
+        android:layout_height="506dp"
         android:background="@drawable/cuadrado_blanco"
         android:elevation="8dp"
         android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7"
-        app:layout_constraintVertical_bias="0.422">
+        app:layout_constraintVertical_bias="0.255">
 
-        <!-- Campo de Nombre -->
+
+        <!-- Campo de Contraseña -->
 
         <TextView
             android:layout_width="wrap_content"
@@ -125,18 +108,18 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/name_input_layout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.117"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.052" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/name_input_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:boxBackgroundMode="filled"
+            app:boxBackgroundMode="none"
             app:layout_constraintBottom_toTopOf="@+id/phone_input_layout"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.48"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintWidth_default="wrap"
@@ -146,6 +129,7 @@
                 android:id="@+id/tvNombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/campos"
                 android:hint="Nombre"
                 android:importantForAccessibility="yes"
                 android:inputType="textPersonName"
@@ -155,14 +139,14 @@
                 android:textStyle="bold" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Campo de Teléfono -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/phone_input_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:boxBackgroundMode="filled"
+            app:boxBackgroundMode="none"
             app:layout_constraintBottom_toTopOf="@+id/address_input_layout"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.49"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/name_input_layout"
             app:layout_constraintWidth_default="wrap"
@@ -172,6 +156,7 @@
                 android:id="@+id/tvTelefono"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/campos"
                 android:hint="Teléfono"
                 android:importantForAccessibility="yes"
                 android:inputType="phone"
@@ -181,14 +166,14 @@
                 android:textStyle="bold" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Campo de Dirección -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/address_input_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:boxBackgroundMode="filled"
+            app:boxBackgroundMode="none"
             app:layout_constraintBottom_toTopOf="@+id/email_input_layout"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.49"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/phone_input_layout"
             app:layout_constraintWidth_default="wrap"
@@ -198,6 +183,7 @@
                 android:id="@+id/tvDireccion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/campos"
                 android:hint="Dirección"
                 android:importantForAccessibility="yes"
                 android:inputType="text"
@@ -207,14 +193,16 @@
                 android:textStyle="bold" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Campo de Correo Electrónico -->
+        <!-- Botón Crear Cuenta -->
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/email_input_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:boxBackgroundMode="filled"
+            app:boxBackgroundMode="none"
             app:layout_constraintBottom_toTopOf="@+id/password_input_layout"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.48"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/address_input_layout"
             app:layout_constraintWidth_default="wrap"
@@ -224,6 +212,7 @@
                 android:id="@+id/tvCorreo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/campos"
                 android:hint="Correo"
                 android:importantForAccessibility="yes"
                 android:inputType="textEmailAddress"
@@ -233,15 +222,15 @@
                 android:textStyle="bold" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Campo de Contraseña -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/password_input_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:boxBackgroundMode="filled"
+            app:boxBackgroundMode="none"
             app:endIconMode="password_toggle"
             app:layout_constraintBottom_toTopOf="@+id/buttonEnviar"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.48"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/email_input_layout"
             app:layout_constraintWidth_default="wrap"
@@ -251,6 +240,8 @@
                 android:id="@+id/tvContraseña"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/campos"
+                android:hint="Contraseña"
                 android:importantForAccessibility="yes"
                 android:inputType="textPassword"
                 android:textColor="#3D3D3D"
@@ -259,15 +250,17 @@
                 android:textStyle="bold" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Botón Crear Cuenta -->
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/buttonEnviar"
-            android:layout_width="176dp"
+            android:layout_width="170dp"
             android:layout_height="40dp"
             android:background="@drawable/boton"
             android:elevation="8dp"
             android:gravity="center"
             android:onClick="crearCuenta"
+            android:padding="8dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
             android:shadowColor="#000000"
             android:shadowRadius="4"
             android:text="Enviar"
@@ -278,11 +271,11 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_default="wrap"
-            app:layout_constraintHeight_min="56dp"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHeight_min="48dp"
+            app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintWidth_default="wrap"
-            app:layout_constraintWidth_min="250dp" />
+            app:layout_constraintWidth_min="175dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

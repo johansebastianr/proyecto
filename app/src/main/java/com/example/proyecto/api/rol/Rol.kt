@@ -47,13 +47,21 @@ class Rol : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-        val intent = when (v?.id) {
-            R.id.conductor -> Intent(this, IniciarSesion::class.java)
-            R.id.pasajero -> Intent(this, IniciarSesion::class.java)
+        val intent: Intent? = when (v?.id) {
+            R.id.conductor -> {
+                sharedPreferences.edit().putString("selected_role", "conductor").apply()
+                Intent(this, IniciarSesion::class.java)
+            }
+            R.id.pasajero -> {
+                sharedPreferences.edit().putString("selected_role", "usuario").apply()
+                Intent(this, IniciarSesion::class.java)
+            }
             R.id.crearCuenta -> Intent(this, Cargo::class.java)
-            else -> return
+            else -> null
         }
-        startActivity(intent)
-        finish()
+        intent?.let {
+            startActivity(it)
+            finish()
+        }
     }
 }

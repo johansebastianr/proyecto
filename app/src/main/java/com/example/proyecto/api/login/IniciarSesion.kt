@@ -1,6 +1,8 @@
 package com.example.proyecto.api.login
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -9,7 +11,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.proyecto.R
-import com.example.proyecto.api.rol.RolAdapter
 import com.example.proyecto.navegacion.ajustes.CerrarSesion
 import com.example.proyecto.navegacion.home.Conductor
 import com.example.proyecto.navegacion.home.Usuario
@@ -25,7 +26,7 @@ class IniciarSesion : AppCompatActivity() {
     private lateinit var passwordEditText: EditText
     private lateinit var loginButton: Button
     private lateinit var forgetButton: TextView
-    private lateinit var rolSeleccionado: String
+    private lateinit var sharedPreferences: SharedPreferences
 
     private val retrofit = Retrofit.Builder()
         .baseUrl("http://192.168.1.12:3000/")
@@ -43,8 +44,10 @@ class IniciarSesion : AppCompatActivity() {
         loginButton = findViewById(R.id.buttonIniciar)
         forgetButton = findViewById(R.id.clave)
 
-        // Obtener el rol seleccionado desde el singleton
-        rolSeleccionado = RolAdapter.userType ?: ""
+        sharedPreferences = getSharedPreferences("my_preferences", Context.MODE_PRIVATE)
+
+        // Obtener el rol seleccionado desde SharedPreferences
+        val rolSeleccionado = sharedPreferences.getString("selected_role", "") ?: ""
 
         loginButton.setOnClickListener {
             val email = emailEditText.text.toString().trim()
