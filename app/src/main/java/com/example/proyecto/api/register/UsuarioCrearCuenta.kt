@@ -1,35 +1,35 @@
-package com.example.proyecto.api.rol
+package com.example.proyecto.api.register
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.example.proyecto.api.conductor.ConductorClass
-import com.example.proyecto.api.conductor.WebConductor
-import com.example.proyecto.databinding.ActivityConductorCrearCuentaBinding
+import com.example.proyecto.api.usuario.UsuarioClass
+import com.example.proyecto.api.usuario.WebUsuario
+import com.example.proyecto.databinding.ActivityUsuarioCrearCuentaBinding
 import kotlinx.coroutines.*
 
-class ConductorCrearCuenta : AppCompatActivity() {
+class UsuarioCrearCuenta : AppCompatActivity() {
 
-    private lateinit var binding: ActivityConductorCrearCuentaBinding
+    private lateinit var binding: ActivityUsuarioCrearCuentaBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityConductorCrearCuentaBinding.inflate(layoutInflater)
+        binding = ActivityUsuarioCrearCuentaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
 
         binding.buttonEnviar.setOnClickListener {
 
             if (validarCampos()) {
-                agregarConductor()
+                agregarUsuario()
             } else {
                 Toast.makeText(this, "Se deben llenar los campos", Toast.LENGTH_LONG).show()
             }
         }
 
         binding.sesion.setOnClickListener {
-            val intent = Intent(this@ConductorCrearCuenta, Rol::class.java)
+            val intent = Intent(this@UsuarioCrearCuenta, Rol::class.java)
             startActivity(intent)
             finish()
         }
@@ -44,8 +44,8 @@ class ConductorCrearCuenta : AppCompatActivity() {
                 || binding.tvContraseA.text.isNullOrEmpty())
     }
 
-    private fun agregarConductor() {
-        val nuevoConductor = ConductorClass(
+    private fun agregarUsuario() {
+        val nuevoUsuario = UsuarioClass(
             -1,
             binding.tvNombre.text.toString(),
             binding.tvTelefono.text.toString(),
@@ -55,16 +55,16 @@ class ConductorCrearCuenta : AppCompatActivity() {
         )
 
         CoroutineScope(Dispatchers.IO).launch {
-            val response = WebConductor.RetrofitClient.webConductor.agregarConductor(nuevoConductor)
+            val response = WebUsuario.RetrofitClient.webUsuario.agregarUsuario(nuevoUsuario)
             withContext(Dispatchers.Main) {
                 if (response.isSuccessful) {
-                    Toast.makeText(this@ConductorCrearCuenta, "Registro éxitoso", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@UsuarioCrearCuenta, "Registro éxitoso", Toast.LENGTH_LONG).show()
                     limpiarCampos()
-                    val intent = Intent(this@ConductorCrearCuenta, Rol::class.java)
+                    val intent = Intent(this@UsuarioCrearCuenta, Rol::class.java)
                     startActivity(intent)
                     finish()
                 } else {
-                    Toast.makeText(this@ConductorCrearCuenta, "Error el correo ya existe", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@UsuarioCrearCuenta, "Error el correo ya existe", Toast.LENGTH_LONG).show()
                 }
             }
         }

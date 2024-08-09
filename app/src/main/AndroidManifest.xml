@@ -26,7 +26,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".api.rol.Cedula"
+            android:name=".api.register.Cedula"
             android:exported="false" />
         <activity
             android:name=".api.conductor.ConductorPerfil"
@@ -44,10 +44,10 @@
             android:name=".navegacion.home.Conductor"
             android:exported="false" />
         <activity
-            android:name=".api.rol.ConductorCrearCuenta"
+            android:name=".api.register.ConductorCrearCuenta"
             android:exported="false" />
         <activity
-            android:name=".api.rol.Cargo"
+            android:name=".api.register.Cargo"
             android:exported="false" />
         <activity
             android:name=".navegacion.home.Usuario"
@@ -66,10 +66,10 @@
             android:name=".navegacion.ajustes.Mensajes"
             android:exported="false" />
         <activity
-            android:name=".api.rol.Rol"
+            android:name=".api.register.Rol"
             android:exported="false" />
         <activity
-            android:name=".api.rol.UsuarioCrearCuenta"
+            android:name=".api.register.UsuarioCrearCuenta"
             android:exported="false" />
         <activity
             android:name=".api.login.IniciarSesion"

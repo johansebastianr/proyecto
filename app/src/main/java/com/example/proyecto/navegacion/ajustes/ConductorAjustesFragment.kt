@@ -8,12 +8,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.proyecto.R
 import com.example.proyecto.api.usuario.UsuarioActivity
-import com.example.proyecto.databinding.FragmentAjustesBinding
+import com.example.proyecto.databinding.FragmentAjustesConductorBinding
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
-class AjustesFragment : Fragment() {
+class ConductorAjustesFragment : Fragment() {
 
-    private var _binding: FragmentAjustesBinding? = null
+    private var _binding: FragmentAjustesConductorBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -21,7 +21,7 @@ class AjustesFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentAjustesBinding.inflate(inflater, container, false)
+        _binding = FragmentAjustesConductorBinding.inflate(inflater, container, false)
 
 
         binding.textView16.setOnClickListener {

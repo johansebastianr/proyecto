@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.proyecto.databinding.FragmentContactosBinding
 
-class ContactosFragment : Fragment() {
+class UsuarioContactos : Fragment() {
 
     private var _binding: FragmentContactosBinding? = null
     private val binding get() = _binding!!

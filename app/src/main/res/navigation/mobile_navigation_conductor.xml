@@ -2,14 +2,14 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    android:id="@+id/mobile_navigation_conductor"
+    app:startDestination="@+id/nav_conductor">
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.example.proyecto.navegacion.home.UsuarioFragment"
+        android:id="@+id/nav_conductor"
+        android:name="com.example.proyecto.navegacion.home.ConductorFragment"
         android:label="Home"
-        tools:layout="@layout/fragment_usuario" />
+        tools:layout="@layout/fragment_conductor" />
 
     <fragment
         android:id="@+id/nav_viajes"
@@ -28,6 +28,5 @@
         android:name="com.example.proyecto.navegacion.ajustes.UsuarioAjustesFragment"
         android:label="Ajustes"
         tools:layout="@layout/fragment_ajustes_conductor" />
-
 
 </navigation>

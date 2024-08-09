@@ -16,6 +16,5 @@ class BotonDialogo : AppCompatActivity() {
         binding = ActivityBotonDialogoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
     }
 }

@@ -1,7 +1,6 @@
 package com.example.proyecto.navegacion.home
 
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -17,7 +16,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.proyecto.R
-import com.example.proyecto.api.rol.Rol
+import com.example.proyecto.api.register.Rol
 import com.example.proyecto.databinding.ActivityHomeBinding
 import com.example.proyecto.navegacion.ajustes.Mensajes
 

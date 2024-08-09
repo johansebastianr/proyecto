@@ -1,4 +1,4 @@
-package com.example.proyecto.api.rol
+package com.example.proyecto.api.register
 
 import android.content.Context
 import android.content.Intent

@@ -1,60 +1,45 @@
 package com.example.proyecto.api.conductor
 
-import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.lifecycle.lifecycleScope
 import com.example.proyecto.R
-import com.example.proyecto.api.usuario.UsuarioActivity
+import kotlinx.coroutines.launch
 
-class ConductorActivity : AppCompatActivity(), ConductorAdapter.OnItemClicked {
+class ConductorActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var conductorAdapter: ConductorAdapter
-    private val listaConductores = ArrayList<ConductorClass>()
+
+    private val webConductor = WebConductor.RetrofitClient.webConductor
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_conductor)
+        setContentView(R.layout.activity_usuario)
 
-        // Inicialización del RecyclerView
         recyclerView = findViewById(R.id.recyclerView)
-        conductorAdapter = ConductorAdapter(this, listaConductores)
-
-        // Configuración del RecyclerView
-        recyclerView.adapter = conductorAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        conductorAdapter.setOnClick(this)
-
-        // Cargar datos en el RecyclerView
-        cargarDatos()
+        obtenerConductores()
     }
 
-    private fun cargarDatos() {
-        // Agregar datos de ejemplo
-        listaConductores.add(ConductorClass(1, "Juan", "123456789", "Dirección 1", "juan@example.com", "contraseña1"))
-        listaConductores.add(ConductorClass(2, "Ana", "987654321", "Dirección 2", "ana@example.com", "contraseña2"))
-        // Notificar al adaptador sobre los cambios en los datos
-        conductorAdapter.notifyDataSetChanged()
-    }
-
-    override fun editarConductor(conductor: ConductorClass) {
-        val intent = Intent(this, UsuarioActivity::class.java)
-        intent.putExtra("conductor", conductor)
-        startActivity(intent)
-    }
-
-    override fun actualizarConductor(conductor: ConductorClass) {
-        // Implementa la lógica para actualizar el usuario
-        // Por ejemplo, podrías mostrar un diálogo o una nueva actividad para editar el usuario
-    }
-
-    override fun borrarConductor(idConductor: Int) {
-        // Implementa la lógica para borrar el usuario
-        // Por ejemplo, podrías eliminar el usuario de la lista y notificar al adaptador
-        listaConductores.removeAll { it.idConductor == idConductor }
-        conductorAdapter.notifyDataSetChanged()
+    private fun obtenerConductores() {
+        lifecycleScope.launch {
+            try {
+                val response = webConductor.obtenerConductores()
+                if (response.isSuccessful) {
+                    val conductores = response.body()?.listaUsuarios ?: emptyList()
+                    conductorAdapter = ConductorAdapter(conductores)
+                    recyclerView.adapter = conductorAdapter
+                } else {
+                    Toast.makeText(this@ConductorActivity, "Error al obtener usuarios: ${response.message()}", Toast.LENGTH_SHORT).show()
+                }
+            } catch (e: Exception) {
+                Toast.makeText(this@ConductorActivity, "Error desconocido: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 }

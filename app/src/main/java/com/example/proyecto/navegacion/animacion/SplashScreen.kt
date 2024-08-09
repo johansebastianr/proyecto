@@ -9,7 +9,7 @@ import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.proyecto.R
-import com.example.proyecto.api.rol.Rol
+import com.example.proyecto.api.register.Rol
 import com.example.proyecto.databinding.ActivitySplashScreenBinding
 
 class SplashScreen : AppCompatActivity() {

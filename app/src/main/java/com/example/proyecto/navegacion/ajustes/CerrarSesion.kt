@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.example.proyecto.api.rol.Rol
+import com.example.proyecto.api.register.Rol
 import com.example.proyecto.databinding.ActivityCerrarSesionBinding
 
 class CerrarSesion : AppCompatActivity(), View.OnClickListener {
@@ -31,7 +31,7 @@ class CerrarSesion : AppCompatActivity(), View.OnClickListener {
             }
 
             binding.opcion2 -> {
-                val intent = Intent(this, AjustesFragment::class.java)
+                val intent = Intent(this, UsuarioAjustesFragment::class.java)
                 startActivity(intent)
             }
         }

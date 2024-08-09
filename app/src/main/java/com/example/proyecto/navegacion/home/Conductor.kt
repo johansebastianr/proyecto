@@ -15,7 +15,7 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.example.proyecto.R
-import com.example.proyecto.api.rol.Rol
+import com.example.proyecto.api.register.Rol
 import com.example.proyecto.databinding.ActivityHomeBinding
 import com.example.proyecto.navegacion.ajustes.Mensajes
 
