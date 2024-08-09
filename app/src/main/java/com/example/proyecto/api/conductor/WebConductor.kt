@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.*
 
 object AppConstantes {
-    const val BASE_URL = "http://192.168.1.12:3000/"
+    const val BASE_URL = "http://192.168.0.17:3000/"
 }
 
 interface WebConductor {

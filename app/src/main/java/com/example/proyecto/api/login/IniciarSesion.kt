@@ -29,7 +29,7 @@ class IniciarSesion : AppCompatActivity() {
     private lateinit var sharedPreferences: SharedPreferences
 
     private val retrofit = Retrofit.Builder()
-        .baseUrl("http://192.168.1.12:3000/")
+        .baseUrl("http://192.168.0.17:3000/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
@@ -57,10 +57,12 @@ class IniciarSesion : AppCompatActivity() {
                 if (rolSeleccionado.isNotEmpty()) {
                     login(email, password, rolSeleccionado)
                 } else {
-                    Toast.makeText(this, "No se seleccionó el tipo de usuario", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "No se seleccionó el tipo de usuario", Toast.LENGTH_SHORT)
+                        .show()
                 }
             } else {
-                Toast.makeText(this, "Por favor ingrese correo y contraseña", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Por favor ingrese correo y contraseña", Toast.LENGTH_SHORT)
+                    .show()
             }
         }
 
@@ -81,32 +83,53 @@ class IniciarSesion : AppCompatActivity() {
                     val userType = loginResponse?.tipo
 
                     if (token != null && userType != null) {
-                        Toast.makeText(this@IniciarSesion, "Login exitoso", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this@IniciarSesion, "Login exitoso", Toast.LENGTH_LONG)
+                            .show()
+
+                        // Guardar el token en SharedPreferences
+                        val editor = sharedPreferences.edit()
+                        editor.putString("TOKEN", token)
+                        editor.apply()
 
                         val intent = when (userType) {
                             "usuario" -> Intent(this@IniciarSesion, Usuario::class.java)
                             "conductor" -> Intent(this@IniciarSesion, Conductor::class.java)
                             else -> {
-                                Toast.makeText(this@IniciarSesion, "Tipo de usuario desconocido", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(
+                                    this@IniciarSesion,
+                                    "Tipo de usuario desconocido",
+                                    Toast.LENGTH_SHORT
+                                ).show()
                                 return
                             }
                         }
 
-                        intent.putExtra("TOKEN", token)
                         startActivity(intent)
                         finish()
                     } else {
-                        Toast.makeText(this@IniciarSesion, "Error en la respuesta del servidor", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            this@IniciarSesion,
+                            "Error en la respuesta del servidor",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 } else {
-                    Log.e("IniciarSesion", "Error en la respuesta: ${response.code()} - ${response.message()}")
-                    Toast.makeText(this@IniciarSesion, "Error en la respuesta del servidor: ${response.message()}", Toast.LENGTH_SHORT).show()
+                    Log.e(
+                        "IniciarSesion",
+                        "Error en la respuesta: ${response.code()} - ${response.message()}"
+                    )
+                    Toast.makeText(
+                        this@IniciarSesion,
+                        "Error en la respuesta del servidor: ${response.message()}",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
 
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                 Log.e("IniciarSesion", "Error de red: ${t.message}", t)
-                Toast.makeText(this@IniciarSesion, "Error de red: ${t.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@IniciarSesion, "Error de red: ${t.message}", Toast.LENGTH_SHORT)
+                    .show()
             }
         })
     }

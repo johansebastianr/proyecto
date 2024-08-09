@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.proyecto.R
-import com.example.proyecto.api.usuario.UsuarioPerfil
+import com.example.proyecto.api.usuario.UsuarioActivity
 
 class ConductorActivity : AppCompatActivity(), ConductorAdapter.OnItemClicked {
 
@@ -41,7 +41,7 @@ class ConductorActivity : AppCompatActivity(), ConductorAdapter.OnItemClicked {
     }
 
     override fun editarConductor(conductor: ConductorClass) {
-        val intent = Intent(this, UsuarioPerfil::class.java)
+        val intent = Intent(this, UsuarioActivity::class.java)
         intent.putExtra("conductor", conductor)
         startActivity(intent)
     }
