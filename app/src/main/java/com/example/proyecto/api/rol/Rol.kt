@@ -56,7 +56,7 @@ class Rol : AppCompatActivity(), View.OnClickListener {
                 sharedPreferences.edit().putString("selected_role", "usuario").apply()
                 Intent(this, IniciarSesion::class.java)
             }
-            R.id.crearCuenta -> Intent(this, Cargo::class.java)
+            R.id.crearCuenta -> Intent(this, Cedula::class.java)
             else -> null
         }
         intent?.let {

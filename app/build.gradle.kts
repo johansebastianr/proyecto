@@ -42,6 +42,12 @@ android {
 }
 
 dependencies {
+
+    implementation("androidx.camera:camera-core:1.2.0")
+    implementation("androidx.camera:camera-camera2:1.2.0")
+    implementation("androidx.camera:camera-lifecycle:1.1.0")
+    implementation("androidx.camera:camera-view:1.0.0-alpha32")
+
     implementation("com.google.android.gms:play-services-maps:18.2.0")
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
